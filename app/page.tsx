@@ -1,4 +1,8 @@
 import Image from "next/image";
+import { AiFillAudio, AiFillBulb, AiFillFileText } from "react-icons/ai";
+import { BiCrown } from "react-icons/bi";
+import { BsStarFill, BsStarHalf } from "react-icons/bs";
+import { RiLeafLine } from "react-icons/ri";
 
 export default function Home() {
   return (
@@ -48,7 +52,7 @@ export default function Home() {
           <div className="features__wrapper">
             <div className="features">
               <div className="features__icon">
-                {/* <AiFillFileText /> */}
+                <AiFillFileText />
               </div>
               <div className="features__title">Read or listen</div>
               <div className="features__sub--title">
@@ -57,7 +61,7 @@ export default function Home() {
             </div>
             <div className="features">
               <div className="features__icon">
-                {/* <AiFillBulb /> */}
+                <AiFillBulb />
               </div>
               <div className="features__title">Find your next read</div>
               <div className="features__sub--title">
@@ -66,7 +70,7 @@ export default function Home() {
             </div>
             <div className="features">
               <div className="features__icon">
-                {/* <AiFillAudio /> */}
+                <AiFillAudio />
               </div>
               <div className="features__title">Briefcasts</div>
               <div className="features__sub--title">
@@ -157,7 +161,7 @@ export default function Home() {
               <div className="review__header">
                 <div className="review__name">Hanna M.</div>
                 <div className="review__stars">
-                  {/* <BsStarFill /> */}
+                  <BsStarFill />
                 </div>
               </div>
               <div className="review__body">
@@ -170,7 +174,7 @@ export default function Home() {
               <div className="review__header">
                 <div className="review__name">David B.</div>
                 <div className="review__stars">
-                  {/* <BsStarFill /> */}
+                  <BsStarFill />
                 </div>
               </div>
               <div className="review__body">
@@ -183,7 +187,7 @@ export default function Home() {
               <div className="review__header">
                 <div className="review__name">Nathan S.</div>
                 <div className="review__stars">
-                  {/* <BsStarFill /> */}
+                  <BsStarFill />
                 </div>
               </div>
               <div className="review__body">
@@ -197,7 +201,7 @@ export default function Home() {
               <div className="review__header">
                 <div className="review__name">Ryan R.</div>
                 <div className="review__stars">
-                  {/* <BsStarFill /> */}
+                  <BsStarFill />
                 </div>
               </div>
               <div className="review__body">
@@ -221,15 +225,15 @@ export default function Home() {
           <div className="numbers__wrapper">
             <div className="numbers">
               <div className="numbers__icon">
-                {/* <BiCrown /> */}
+                <BiCrown />
               </div>
               <div className="numbers__title">3 Million</div>
               <div className="numbers__sub--title">Downloads on all platforms</div>
             </div>
             <div className="numbers">
               <div className="numbers__icon numbers__star--icon">
-                {/* <BsStarFill /> */}
-                {/* <BsStarHalf /> */}
+                <BsStarFill />
+                <BsStarHalf />
               </div>
               <div className="numbers__title">4.5 Stars</div>
               <div className="numbers__sub--title">
@@ -238,7 +242,7 @@ export default function Home() {
             </div>
             <div className="numbers">
               <div className="numbers__icon">
-                {/* <RiLeafLine /> */}
+                <RiLeafLine />
               </div>
               <div className="numbers__title">97%</div>
               <div className="numbers__sub--title">
