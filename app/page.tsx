@@ -1,12 +1,13 @@
-import Image from "next/image";
 import { AiFillAudio, AiFillBulb, AiFillFileText } from "react-icons/ai";
 import { BiCrown } from "react-icons/bi";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { RiLeafLine } from "react-icons/ri";
+import AuthModal from "@/components/AuthModal";
 
 export default function Home() {
   return (
     <>
+      <AuthModal />
      <nav className="nav">
       <div className="nav__wrapper">
         <figure className="nav__img--mask">
