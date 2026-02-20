@@ -1,7 +1,9 @@
+import styles from "./AuthModal.module.css";
+
 function AuthFooter() {
   return (
-    <div className="modal__bottom--questions">
-      <a href="">Forgot your password?</a>
+    <div className={styles.footer}>
+      <a href="" className={styles.link}>Forgot your password?</a>
       <button>Don't have an account? Sign up</button>
     </div>
   );
