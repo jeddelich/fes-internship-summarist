@@ -65,72 +65,6 @@
     cursor: default;
 }
 
-/* AuthBtn */
-
-.btn {
-    position: relative;
-    width: 100%;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    height: 40px;
-    color: white;
-    position: relative;
-    transition: all 200ms ease;
-}
-
-.iconWrapper {
-    position: absolute;
-    top: 50%;
-    left: 4px;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background-color: white;
-    border-radius: 8%;
-    z-index: 1;
-}
-
-form .iconWrapper {
-    display: none;
-}
-
-.icon{
-    z-index: 2;
-    width: 20px;
-    height: 20px;
-}
-
-/* AuthBtn Colors */
-
-.darkBlue {
-    background-color: #3a579d;
-}
-
-.darkBlue:hover {
-    background-color: #25396b;
-}
-
-.lightBlue {
-    background-color: #4285f4;
-}
-
-.lightBlue:hover {
-    background-color: #3367d6;
-}
-
-.green {
-    background-color: #2bd97c;
-    color: #032b41;
-}
-
-.green:hover {
-    background-color: #20ba68;
-}
-
 /* AuthForm */
 
 .input {
@@ -169,4 +103,31 @@ form .iconWrapper {
 
 .link:hover {
     opacity: 1;
+}
+
+/* Btn Colors */
+
+.darkBlue {
+    background-color: #3a579d;
+}
+
+.darkBlue:hover {
+    background-color: #25396b;
+}
+
+.lightBlue {
+    background-color: #4285f4;
+}
+
+.lightBlue:hover {
+    background-color: #3367d6;
+}
+
+.green {
+    background-color: #2bd97c;
+    color: #032b41;
+}
+
+.green:hover {
+    background-color: #20ba68;
 }

@@ -1,12 +1,10 @@
-import LoginBtn from "./LoginBtn";
-import LoginForm from "./LoginForm";
-import LoginFooter from "./LoginFooter";
+import Btn from "../UI/Btn";
+import AccountForm from "./AccountForm";
+import ModalFooter from "./ModalFooter";
 import styles from "./LoginModal.module.css";
 import { MdClose } from "react-icons/md";
 
-function SignUpModal({ setSignUpModalOpen }) {
-  
-    console.log("SignUpModal rendered");
+function SignUpModal({ setSignUpModalOpen, setLoginModalOpen, loginModalOpen, signUpModalOpen }) {
   
     return (
     <div className={styles.background}>
@@ -16,16 +14,22 @@ function SignUpModal({ setSignUpModalOpen }) {
           onClick={() => setSignUpModalOpen(false)}
         />
         <h2 className={styles.title}>Sign up to Summarist</h2>
-        <LoginBtn
-          text="Login with Google"
+        <Btn
+          text="Sign up with Google"
           color={styles.lightBlue}
           icon="/logos/google__logo.png"
         />
         <div className={styles.separator}>
           <span className={styles.separatorText}>or</span>
         </div>
-        <LoginForm />
-        <LoginFooter />
+        <AccountForm type="Sign Up" />
+        <ModalFooter
+          prompt="Already have an account? Log in"
+          setSignUpModalOpen={setSignUpModalOpen}
+          setLoginModalOpen={setLoginModalOpen}
+          signUpModalOpen={signUpModalOpen}
+          loginModalOpen={loginModalOpen}
+        />
       </div>
     </div>
   );
