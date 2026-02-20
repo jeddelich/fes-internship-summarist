@@ -10,7 +10,7 @@ export default function Home() {
      <nav className="nav">
       <div className="nav__wrapper">
         <figure className="nav__img--mask">
-          <img className="nav__img" src="" alt="logo" />
+          <img className="nav__img" src="/logos/summarist__logo.png" alt="logo" />
         </figure>
         <ul className="nav__list--wrapper">
           <li className="nav__list nav__list--login">Login</li>
@@ -39,7 +39,7 @@ export default function Home() {
               <button className="btn home__cta--btn">Login</button>
             </div>
             <figure className="landing__image--mask">
-              <img src="" alt="landing" />
+              <img src="/images/landing__image.png" alt="landing" />
             </figure>
           </div>
         </div>
