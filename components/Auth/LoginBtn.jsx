@@ -1,6 +1,6 @@
-import styles from "./AuthModal.module.css";
+import styles from "./LoginModal.module.css";
 
-function AuthBtn({ text, color, icon }) {
+function LoginBtn({ text, color, icon }) {
   return (
     <div className={styles.btnWrapper}>
       <button className={`${styles.btn} ${color}`}>
@@ -13,4 +13,4 @@ function AuthBtn({ text, color, icon }) {
   );
 }
 
-export default AuthBtn;
+export default LoginBtn;

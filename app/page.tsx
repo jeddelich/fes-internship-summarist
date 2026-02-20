@@ -1,22 +1,33 @@
+"use client"
+
 import { AiFillAudio, AiFillBulb, AiFillFileText } from "react-icons/ai";
 import { BiCrown } from "react-icons/bi";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { RiLeafLine } from "react-icons/ri";
-import AuthModal from "@/components/AuthModal";
-import Page from "@/components/AuthModal";
+import { useState } from "react";
+import SignUpModal from "@/components/Auth/SignUpModal";
+import LoginModal from "@/components/Auth/LoginModal";
 
 export default function Home() {
+  
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [signUpModalOpen, setSignUpModalOpen] = useState(false);
+
   return (
     <>
-      <AuthModal />
-      <Page />
+      {
+        loginModalOpen && <LoginModal setLoginModalOpen={setLoginModalOpen} setSignUpModalOpen={setSignUpModalOpen} />
+      }
+      {
+        signUpModalOpen && <SignUpModal setSignUpModalOpen={setSignUpModalOpen} />
+      }
      <nav className="nav">
       <div className="nav__wrapper">
         <figure className="nav__img--mask">
           <img className="nav__img" src="/logos/summarist__logo.png" alt="logo" />
         </figure>
         <ul className="nav__list--wrapper">
-          <li className="nav__list nav__list--login">Login</li>
+          <li className="nav__list nav__list--login" onClick={() => setLoginModalOpen(true)}>Login</li>
           <li className="nav__list nav__list--mobile">About</li>
           <li className="nav__list nav__list--mobile">Contact</li>
           <li className="nav__list nav__list--mobile">Help</li>
@@ -39,7 +50,7 @@ export default function Home() {
                 <br className="remove--tablet" />
                 and even people who don’t like to read.
               </div>
-              <button className="btn home__cta--btn">Login</button>
+              <button className="btn home__cta--btn" onClick={() => setLoginModalOpen(true)}>Login</button>
             </div>
             <figure className="landing__image--mask">
               <img src="/images/landing__image.png" alt="landing" />
