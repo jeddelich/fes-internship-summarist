@@ -14,24 +14,29 @@
     position: relative;
     background-color: #fff;
     border-radius: 8px;
-    padding: 24px;
+    padding: 24px 32px;
     width: 400px;
     max-width: 90%;
 }
 
 .title {
-    font-size: 24px;
-    margin: 32px 0 16px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #032b41;
+    margin: 16px 0;
     text-align: center;
+    cursor: default;
 }
 
 .btn {
     width: 100%;
-    padding: 12px;
-    border: 1px solid black;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    height: 40px;
+    color: white;
+    position: relative;
+    transition: all 200ms ease;
 }
 
 .input {
@@ -42,6 +47,10 @@
     border-radius: 4px;
 }
 
+.input:focus {
+    border-color: #2bd97c;
+}
+
 .footer {
     display: flex;
     flex-direction: column;
@@ -49,6 +58,7 @@
 
 .link {
     text-align: center;
+    font-size: 14px;
     margin: 16px 0;
 }
 
@@ -71,6 +81,36 @@
     top: 16px;
     right: 16px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 24px;
     color: #333;
+    transition: all 200ms ease;
+}
+
+.closeIcon:hover {
+    opacity: 0.75;
+}
+
+.darkBlue {
+    background-color: #3a579d;
+}
+
+.darkBlue:hover {
+    background-color: #25396b;
+}
+
+.lightBlue {
+    background-color: #4285f4;
+}
+
+.lightBlue:hover {
+    background-color: #3367d6;
+}
+
+.green {
+    background-color: #2bd97c;
+    color: #032b41;
+}
+
+.green:hover {
+    background-color: #20ba68;
 }

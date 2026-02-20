@@ -9,12 +9,12 @@ function AuthModal() {
     <div className={styles.background}>
       <div className={styles.modal}>
             <MdClose className={styles.closeIcon} />
-            <h2 className={styles.title}>Log in to Summarist</h2>
-            <AuthBtn text="Login as a Guest" />
+            <h2 className={styles.title} >Log in to Summarist</h2>
+            <AuthBtn text="Login as a Guest" color={styles.darkBlue}/>
             <div className={styles.separator}>
               <span className="modal__separator--text">or</span>
             </div>
-            <AuthBtn text="Login with Google" />
+            <AuthBtn text="Login with Google" color={styles.lightBlue}/>
             <div className={styles.separator}>
               <span className="modal__separator--text">or</span>
             </div>

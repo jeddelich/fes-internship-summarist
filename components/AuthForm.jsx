@@ -5,7 +5,7 @@ function AuthForm() {
     <form action="">
       <input type="email" placeholder="Email Address" className={styles.input} />
       <input type="password" placeholder="Password" className={styles.input} />
-      <button className={styles.btn + " login--main"}>Login</button>
+      <button className={`${styles.btn} ${styles.green}`}>Login</button>
     </form>
   );
 }

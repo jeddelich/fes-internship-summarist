@@ -1,10 +1,11 @@
 import styles from "./AuthModal.module.css";
 
-function AuthBtn({ text }) {
+function AuthBtn({ text, color }) {
+  console.log(color);
   return (
-    <div className="modal__btn--wrapper">
+    <div className={styles.btnWrapper}>
       <i></i>
-      <button className={styles.btn + " login--guest"}>
+      <button className={`${styles.btn} ${color}`}>
         {text}
       </button>
     </div>
