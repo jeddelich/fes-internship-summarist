@@ -8,7 +8,7 @@ import Page from "@/components/AuthModal";
 export default function Home() {
   return (
     <>
-      {/* <AuthModal /> */}
+      <AuthModal />
       <Page />
      <nav className="nav">
       <div className="nav__wrapper">

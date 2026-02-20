@@ -1,3 +1,4 @@
+import AuthBtn from "./AuthBtn";
 import styles from "./AuthModal.module.css";
 
 function AuthForm() {
@@ -5,7 +6,7 @@ function AuthForm() {
     <form action="">
       <input type="email" placeholder="Email Address" className={styles.input} />
       <input type="password" placeholder="Password" className={styles.input} />
-      <button className={`${styles.btn} ${styles.green}`}>Login</button>
+      <AuthBtn text="Login" color={styles.green}/>
     </form>
   );
 }
