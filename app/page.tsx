@@ -8,10 +8,20 @@ import SignUpModal from "@/components/Auth/SignUpModal";
 import LoginModal from "@/components/Auth/LoginModal";
 import ResetPasswordModal from "@/components/Auth/ResetPasswordModal";
 import useAuthModal from "../components/hooks/useAuthModal";
+import { db } from "@/services/firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { PassThrough } from "stream";
 
 export default function Home() {
   const { activeModal, openLogin, openSignUp, openResetPassword, closeModal } =
     useAuthModal();
+
+  function createUser(inputEmail: string, inputPassword: string) {
+    addDoc(collection(db, "users"), {
+      email: inputEmail,
+      password: inputPassword
+    });
+  }
 
   return (
     <>
@@ -27,6 +37,7 @@ export default function Home() {
         <SignUpModal
           closeModal={closeModal}
           openLogin={openLogin}
+          createUser={createUser}
           activeModal={activeModal}
         />
       )}

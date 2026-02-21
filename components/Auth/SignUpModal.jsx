@@ -4,7 +4,7 @@ import ModalQuestions from "./ModalQuestions";
 import styles from "./LoginModal.module.css";
 import { MdClose } from "react-icons/md";
 
-function SignUpModal({ closeModal, openLogin, activeModal }) {
+function SignUpModal({ closeModal, openLogin, activeModal, createUser }) {
 
     return (
     <div className={styles.background}>
@@ -22,7 +22,7 @@ function SignUpModal({ closeModal, openLogin, activeModal }) {
         <div className={styles.separator}>
           <span className={styles.separatorText}>or</span>
         </div>
-        <AccountForm type="Sign Up" />
+        <AccountForm type="Sign Up" createUser={createUser} />
         <ModalQuestions
           prompt="Already have an account? Log in"
             openLogin={openLogin}
