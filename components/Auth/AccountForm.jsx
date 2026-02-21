@@ -1,17 +1,29 @@
-import Btn from "../UI/Btn";
+import Btn from "../ui/Btn";
 import styles from "./LoginModal.module.css";
 import { useState } from "react";
+import { signUp, LogIn } from "@/services/firebaseAuth";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/services/firebase";
 
-function AccountForm({ type, createUser }) {
+function AccountForm({ type }) {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // onAuthStateChanged(auth, (user) => {
+  //   if (user) {
+  //     window.location.href = "https://localhost:3000/for-you";
+  //   } else {
+  //     window.location.href = "https://localhost:3000";
+  //   }});
+
   function handleSubmit(e) {
     e.preventDefault();
     if (type === "Sign Up") {
-      console.log("Creating user...");
-      createUser(email, password);
+      signUp(email, password);
+    }
+    if (type === "Login") {
+      LogIn(email, password);
     }
     setEmail("");
     setPassword("");

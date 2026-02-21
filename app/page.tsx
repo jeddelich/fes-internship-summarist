@@ -4,24 +4,15 @@ import { AiFillAudio, AiFillBulb, AiFillFileText } from "react-icons/ai";
 import { BiCrown } from "react-icons/bi";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { RiLeafLine } from "react-icons/ri";
-import SignUpModal from "@/components/Auth/SignUpModal";
-import LoginModal from "@/components/Auth/LoginModal";
-import ResetPasswordModal from "@/components/Auth/ResetPasswordModal";
+import SignUpModal from "@/components/auth/SignUpModal";
+import LoginModal from "@/components/auth/LoginModal";
+import ResetPasswordModal from "@/components/auth/ResetPasswordModal";
 import useAuthModal from "../components/hooks/useAuthModal";
-import { db } from "@/services/firebase";
-import { collection, addDoc } from "firebase/firestore";
-import { PassThrough } from "stream";
+import Navbar from "@/components/layout/Navbar";
 
 export default function Home() {
   const { activeModal, openLogin, openSignUp, openResetPassword, closeModal } =
     useAuthModal();
-
-  function createUser(inputEmail: string, inputPassword: string) {
-    addDoc(collection(db, "users"), {
-      email: inputEmail,
-      password: inputPassword
-    });
-  }
 
   return (
     <>
@@ -37,7 +28,6 @@ export default function Home() {
         <SignUpModal
           closeModal={closeModal}
           openLogin={openLogin}
-          createUser={createUser}
           activeModal={activeModal}
         />
       )}
@@ -48,28 +38,7 @@ export default function Home() {
           activeModal={activeModal}
         />
       )}
-      <nav className="nav">
-        <div className="nav__wrapper">
-          <figure className="nav__img--mask">
-            <img
-              className="nav__img"
-              src="/logos/summarist__logo.png"
-              alt="logo"
-            />
-          </figure>
-          <ul className="nav__list--wrapper">
-            <li
-              className="nav__list nav__list--login"
-              onClick={(event) => openLogin(event)}
-            >
-              Login
-            </li>
-            <li className="nav__list nav__list--mobile">About</li>
-            <li className="nav__list nav__list--mobile">Contact</li>
-            <li className="nav__list nav__list--mobile">Help</li>
-          </ul>
-        </div>
-      </nav>
+      <Navbar openLogin={openLogin} />
       <section id="landing">
         <div className="container">
           <div className="row">
