@@ -4,42 +4,37 @@ import { AiFillAudio, AiFillBulb, AiFillFileText } from "react-icons/ai";
 import { BiCrown } from "react-icons/bi";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { RiLeafLine } from "react-icons/ri";
-import { useState } from "react";
 import SignUpModal from "@/components/Auth/SignUpModal";
 import LoginModal from "@/components/Auth/LoginModal";
 import ResetPasswordModal from "@/components/Auth/ResetPasswordModal";
+import useAuthModal from "../components/hooks/useAuthModal";
 
 export default function Home() {
-  const [loginModalOpen, setLoginModalOpen] = useState(false);
-  const [signUpModalOpen, setSignUpModalOpen] = useState(false);
-  const [resetPasswordModalOpen, setResetPasswordModalOpen] = useState(false);
+  const { activeModal, openLogin, openSignUp, openResetPassword, closeModal } =
+    useAuthModal();
 
   return (
     <>
-      {loginModalOpen && (
+      {activeModal === "login" && (
         <LoginModal
-          loginModalOpen={loginModalOpen}
-          setLoginModalOpen={setLoginModalOpen}
-          signUpModalOpen={signUpModalOpen}
-          setSignUpModalOpen={setSignUpModalOpen}
-          resetPasswordModalOpen={resetPasswordModalOpen}
-          setResetPasswordModalOpen={setResetPasswordModalOpen}
+          closeModal={closeModal}
+          openSignUp={openSignUp}
+          openResetPassword={openResetPassword}
+          activeModal={activeModal}
         />
       )}
-      {signUpModalOpen && (
+      {activeModal === "signup" && (
         <SignUpModal
-          setSignUpModalOpen={setSignUpModalOpen}
-          setLoginModalOpen={setLoginModalOpen}
-          loginModalOpen={loginModalOpen}
-          signUpModalOpen={signUpModalOpen}
+          closeModal={closeModal}
+          openLogin={openLogin}
+          activeModal={activeModal}
         />
       )}
-      {resetPasswordModalOpen && (
+      {activeModal === "reset" && (
         <ResetPasswordModal
-          setResetPasswordModalOpen={setResetPasswordModalOpen}
-          resetPasswordModalOpen={resetPasswordModalOpen}
-          setLoginModalOpen={setLoginModalOpen}
-          loginModalOpen={loginModalOpen}
+          closeModal={closeModal}
+          openLogin={openLogin}
+          activeModal={activeModal}
         />
       )}
       <nav className="nav">
@@ -54,7 +49,7 @@ export default function Home() {
           <ul className="nav__list--wrapper">
             <li
               className="nav__list nav__list--login"
-              onClick={() => setLoginModalOpen(true)}
+              onClick={(event) => openLogin(event)}
             >
               Login
             </li>
@@ -82,7 +77,7 @@ export default function Home() {
                 </div>
                 <button
                   className="btn home__cta--btn"
-                  onClick={() => setLoginModalOpen(true)}
+                  onClick={(event) => openLogin(event)}
                 >
                   Login
                 </button>

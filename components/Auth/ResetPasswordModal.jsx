@@ -1,30 +1,19 @@
-import Btn from "../UI/Btn";
 import AccountForm from "./AccountForm";
-import ModalFooter from "./ModalFooter";
+import ModalQuestions from "./ModalQuestions";
 import styles from "./LoginModal.module.css";
 import { MdClose } from "react-icons/md";
 
-function ResetPasswordModal({
-  resetPasswordModalOpen,
-  setResetPasswordModalOpen,
-  setLoginModalOpen,
-  loginModalOpen,
-}) {
+function ResetPasswordModal({ closeModal, openLogin, activeModal }) {
   return (
     <div className={styles.background}>
       <div className={styles.modal}>
-        <MdClose
-          className={styles.closeIcon}
-          onClick={() => setResetPasswordModalOpen(false)}
-        />
+        <MdClose className={styles.closeIcon} onClick={() => closeModal()} />
         <h2 className={styles.title}>Reset your password</h2>
         <AccountForm type="Send reset password link" />
-        <ModalFooter
-          prompt="Find out your password? Back to login"
-          setLoginModalOpen={setLoginModalOpen}
-          loginModalOpen={loginModalOpen}
-          setResetPasswordModalOpen={setResetPasswordModalOpen}
-          resetPasswordModalOpen={resetPasswordModalOpen}
+        <ModalQuestions
+          prompt="Find your password? Back to login"
+          openLogin={openLogin}
+          activeModal={activeModal}
         />
       </div>
     </div>

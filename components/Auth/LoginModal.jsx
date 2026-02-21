@@ -1,23 +1,17 @@
 import Btn from "../UI/Btn";
 import AccountForm from "./AccountForm";
-import ModalFooter from "./ModalFooter";
+import ModalQuestions from "./ModalQuestions";
 import styles from "./LoginModal.module.css";
 import { MdClose } from "react-icons/md";
 
-function LoginModal({
-  setLoginModalOpen,
-  setSignUpModalOpen,
-  loginModalOpen,
-  signUpModalOpen,
-  resetPasswordModalOpen,
-  setResetPasswordModalOpen
-}) {
+function LoginModal({ closeModal, openSignUp, openResetPassword, activeModal }) {
+  
   return (
     <div className={styles.background}>
       <div className={styles.modal}>
         <MdClose
           className={styles.closeIcon}
-          onClick={() => setLoginModalOpen(false)}
+          onClick={() => closeModal()}
         />
         <h2 className={styles.title}>Log in to Summarist</h2>
         <Btn
@@ -37,14 +31,11 @@ function LoginModal({
           <span className={styles.separatorText}>or</span>
         </div>
         <AccountForm type="Login" />
-        <ModalFooter
+        <ModalQuestions
           prompt="Don't have an account? Sign up"
-          signUpModalOpen={signUpModalOpen}
-          setSignUpModalOpen={setSignUpModalOpen}
-          loginModalOpen={loginModalOpen}
-          setLoginModalOpen={setLoginModalOpen}
-          resetPasswordModalOpen={resetPasswordModalOpen}
-          setResetPasswordModalOpen={setResetPasswordModalOpen}
+          openSignUp={openSignUp}
+          openResetPassword={openResetPassword}
+          activeModal={activeModal}
         />
       </div>
     </div>
