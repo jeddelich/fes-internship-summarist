@@ -1,0 +1,177 @@
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px 32px 0 32px;
+    width: 400px;
+    max-width: 90%;
+}
+
+.loginModal {
+    animation: growIn 800ms ease;
+}
+
+@keyframes growIn {
+    from {
+        opacity: 0;
+        transform: scale(0)
+    }
+    to {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+.closeIcon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+    transition: all 200ms ease;
+}
+
+.closeIcon:hover {
+    opacity: 0.75;
+}
+
+.closeIcon:active {
+    transform: translateY(1px);
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #032b41;
+    margin: 12px 0 20px 0;
+    text-align: center;
+    cursor: default;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+}
+
+.separatorText{
+    margin: 0 12px;
+    cursor: default;
+}
+
+/* AuthForm */
+
+.inputWrapper {
+    position: relative;
+}
+
+.showPasswordBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #032b41;
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0.75;
+    transition: all 200ms ease;
+}
+
+.showPasswordBtn:hover {
+    opacity: 1;
+}
+
+.input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.emailInput {
+    border-color: inherit;
+}
+
+.passwordInput {
+    border-color: inherit;
+}
+
+.input:hover {
+    outline: none;
+    border-color: #aaa;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #2bd97c;
+}
+
+/* AuthFooter */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0;
+}
+
+.link {
+    text-align: center;
+    font-size: 14px;
+    margin: 8px 0;
+    opacity: 0.75;
+    transition: all 200ms ease;
+}
+
+.link:hover {
+    opacity: 1;
+}
+
+/* Btn Colors */
+
+.darkBlue {
+    background-color: #3a579d;
+}
+
+.darkBlue:hover {
+    background-color: #25396b;
+}
+
+.lightBlue {
+    background-color: #4285f4;
+}
+
+.lightBlue:hover {
+    background-color: #3367d6;
+}
+
+.green {
+    background-color: #2bd97c;
+    color: #032b41;
+}
+
+.green:hover {
+    background-color: #20ba68;
+}
