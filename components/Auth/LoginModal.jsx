@@ -5,12 +5,11 @@ import styles from "./LoginModal.module.css";
 import { MdClose } from "react-icons/md";
 import { LogIn } from "../../services/firebaseAuth";
 
-function LoginModal({ closeModal, openSignUp, openResetPassword, activeModal }) {
+function LoginModal({ closeModal, openSignUp, openResetPassword, activeModal}) {
 
   function handleGuestLogin(e) {
     e.preventDefault();
     LogIn("guest@gmail.com", "guest123");
-    console.log("Guest login clicked");
   }
 
   return (
@@ -34,6 +33,7 @@ function LoginModal({ closeModal, openSignUp, openResetPassword, activeModal }) 
           text="Login with Google"
           color={styles.lightBlue}
           icon="/logos/google__logo.png"
+          style={{ cursor : "not-allowed" }}
         />
         <div className={styles.separator}>
           <span className={styles.separatorText}>or</span>

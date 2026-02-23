@@ -67,6 +67,27 @@
 
 /* AuthForm */
 
+.inputWrapper {
+    position: relative;
+}
+
+.showPasswordBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #032b41;
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0.75;
+    transition: all 200ms ease;
+}
+
+.showPasswordBtn:hover {
+    opacity: 1;
+}
+
 .input {
     width: 100%;
     padding: 8px;

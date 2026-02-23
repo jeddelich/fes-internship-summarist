@@ -26,6 +26,14 @@ export default function Home() {
     }
   }, [user, loading, router]);
 
+  useEffect(() => {
+    if (activeModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [activeModal]);
+
   return (
     <>
       {activeModal === "login" && (

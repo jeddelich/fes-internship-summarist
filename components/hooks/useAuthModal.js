@@ -24,6 +24,7 @@ const closeModal = () => {
 
 return {
     activeModal,
+    setActiveModal,
     openLogin,
     openSignUp,
     openResetPassword,

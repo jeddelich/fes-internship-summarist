@@ -19,6 +19,7 @@ function SignUpModal({ closeModal, openLogin, activeModal}) {
           color={styles.lightBlue}
           icon="/logos/google__logo.png"
           type="button"
+          style={{ cursor : "not-allowed" }}
         />
         <div className={styles.separator}>
           <span className={styles.separatorText}>or</span>
