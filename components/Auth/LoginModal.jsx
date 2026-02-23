@@ -14,7 +14,7 @@ function LoginModal({ closeModal, openSignUp, openResetPassword, activeModal}) {
 
   return (
     <div className={styles.background}>
-      <div className={styles.modal}>
+      <div className={`${styles.modal} + ${styles.loginModal}`}>
         <MdClose
           className={styles.closeIcon}
           onClick={() => closeModal()}

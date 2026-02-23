@@ -9,13 +9,15 @@ import LoginModal from "@/components/auth/LoginModal";
 import ResetPasswordModal from "@/components/auth/ResetPasswordModal";
 import useAuthModal from "../components/hooks/useAuthModal";
 import Navbar from "@/components/layout/Navbar";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
 export default function Home() {
   const { activeModal, openLogin, openSignUp, openResetPassword, closeModal } =
     useAuthModal();
+
+  const scrollBarWidthRef = useRef<number | null>(null);
 
   const { user, loading } = useAuth();
   const router = useRouter();
@@ -27,10 +29,16 @@ export default function Home() {
   }, [user, loading, router]);
 
   useEffect(() => {
+    if (scrollBarWidthRef.current === null) {
+      scrollBarWidthRef.current = window.innerWidth - document.documentElement.clientWidth;
+    }
+
     if (activeModal) {
       document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollBarWidthRef.current}px`;
     } else {
       document.body.style.overflow = "auto";
+      document.body.style.paddingRight = "";
     }
   }, [activeModal]);
 

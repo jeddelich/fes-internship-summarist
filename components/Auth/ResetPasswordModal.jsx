@@ -9,7 +9,7 @@ function ResetPasswordModal({ closeModal, openLogin, activeModal }) {
       <div className={styles.modal}>
         <MdClose className={styles.closeIcon} onClick={() => closeModal()} />
         <h2 className={styles.title}>Reset your password</h2>
-        <AccountForm type="Send reset password link" />
+        <AccountForm type="Send reset password link" style={{cursor: "not-allowed"}} />
         <ModalQuestions
           prompt="Find your password? Back to login"
           openLogin={openLogin}

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { signUp, LogIn } from "@/services/firebaseAuth";
 import { useRouter } from "next/navigation";
 
-function AccountForm({ type }) {
+function AccountForm({ type, style }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -18,8 +18,6 @@ function AccountForm({ type }) {
     if (type === "Login") {
       LogIn(email, password);
     }
-    setEmail("");
-    setPassword("");
   }
 
   return (
@@ -28,6 +26,7 @@ function AccountForm({ type }) {
         type="email"
         placeholder="Email Address"
         className={styles.input}
+        id="email"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
@@ -38,6 +37,7 @@ function AccountForm({ type }) {
             type={showPassword ? "text" : "password"}
             placeholder="Password"
             className={styles.input}
+            id="password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -54,7 +54,7 @@ function AccountForm({ type }) {
           }
         </div>
       )}
-      <Btn text={type} color={styles.green} type="submit" />
+      <Btn text={type} color={styles.green} type="submit" style={style} />
     </form>
   );
 }
