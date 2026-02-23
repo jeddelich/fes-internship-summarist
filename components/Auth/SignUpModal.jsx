@@ -18,6 +18,7 @@ function SignUpModal({ closeModal, openLogin, activeModal}) {
           text="Sign up with Google"
           color={styles.lightBlue}
           icon="/logos/google__logo.png"
+          type="button"
         />
         <div className={styles.separator}>
           <span className={styles.separatorText}>or</span>

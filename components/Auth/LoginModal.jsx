@@ -3,11 +3,15 @@ import AccountForm from "./AccountForm";
 import ModalQuestions from "./ModalQuestions";
 import styles from "./LoginModal.module.css";
 import { MdClose } from "react-icons/md";
-import { useAuth } from "@/context/AuthContext";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { LogIn } from "../../services/firebaseAuth";
 
 function LoginModal({ closeModal, openSignUp, openResetPassword, activeModal }) {
+
+  function handleGuestLogin(e) {
+    e.preventDefault();
+    LogIn("guest@gmail.com", "guest123");
+    console.log("Guest login clicked");
+  }
 
   return (
     <div className={styles.background}>
@@ -21,6 +25,7 @@ function LoginModal({ closeModal, openSignUp, openResetPassword, activeModal }) 
           text="Login as a Guest"
           color={styles.darkBlue}
           icon="/icons/user.svg"
+          onClick={handleGuestLogin}
         />
         <div className={styles.separator}>
           <span className={styles.separatorText}>or</span>

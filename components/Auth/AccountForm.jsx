@@ -44,7 +44,7 @@ function AccountForm({ type }) {
           onChange={(e) => setPassword(e.target.value)}
         />
       )}
-        <Btn text={type} color={styles.green} />
+        <Btn text={type} color={styles.green} type="submit" />
     </form>
   );
 }
