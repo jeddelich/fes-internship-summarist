@@ -9,10 +9,22 @@ import LoginModal from "@/components/auth/LoginModal";
 import ResetPasswordModal from "@/components/auth/ResetPasswordModal";
 import useAuthModal from "../components/hooks/useAuthModal";
 import Navbar from "@/components/layout/Navbar";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Home() {
   const { activeModal, openLogin, openSignUp, openResetPassword, closeModal } =
     useAuthModal();
+
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && user) {
+      router.push("/for-you");
+    }
+  }, [user, loading, router]);
 
   return (
     <>

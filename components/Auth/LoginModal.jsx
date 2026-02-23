@@ -3,9 +3,12 @@ import AccountForm from "./AccountForm";
 import ModalQuestions from "./ModalQuestions";
 import styles from "./LoginModal.module.css";
 import { MdClose } from "react-icons/md";
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 function LoginModal({ closeModal, openSignUp, openResetPassword, activeModal }) {
-  
+
   return (
     <div className={styles.background}>
       <div className={styles.modal}>
