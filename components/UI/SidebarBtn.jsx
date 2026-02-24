@@ -1,13 +1,13 @@
-import React from "react";
+import styles from "./SidebarBtn.module.css";
 
-function SidebarBtn({ text, redirect, LogOut }) {
+function SidebarBtn({ text, redirect, LogOut, icon }) {
   return (
     <li>
-      <button onClick={() => LogOut()}>
-        <figure>
-          <i></i>
+      <button onClick={LogOut} className={styles.btn}>
+        <figure className={styles.iconWrapper}>
+          <i className={icon}></i>
         </figure>
-        <div>{text}</div>
+        <div className={styles.text}>{text}</div>
       </button>
     </li>
   );

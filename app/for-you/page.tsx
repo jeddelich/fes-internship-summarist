@@ -4,6 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/layout/Sidebar";
+import styles from "./page.module.css";
 
 export default function dashboard() {
 
@@ -19,6 +20,8 @@ export default function dashboard() {
   if (loading) return <div>Loading...</div>;
 
   return (
+    <section className={styles.forYou}>
     <Sidebar />
+    </section>
   )
 }
