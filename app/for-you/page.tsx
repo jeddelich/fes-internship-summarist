@@ -3,6 +3,7 @@ import { LogOut } from "@/services/firebaseAuth"
 import { useAuth } from "@/context/AuthContext";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Sidebar from "@/components/layout/Sidebar";
 
 export default function dashboard() {
 
@@ -18,6 +19,6 @@ export default function dashboard() {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <a onClick={() => LogOut()}>logout</a>
+    <Sidebar />
   )
 }
