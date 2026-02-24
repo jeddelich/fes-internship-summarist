@@ -5,23 +5,22 @@
     height: 100vh;
     width: 200px;
     background-color: #f7faf9;
-    padding: 20px;
+    padding: 20px 8px;
     border-right: 2px solid #e2e8f0;
 }
 
 .sidebar__list {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    margin-bottom: 16px;
+    gap: 8px;
 }
 
 .logoWrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 120px;
-    margin-left: 20px;
+    width: 90%;
+    margin-left: 5%;
     height: auto;
 }
 
