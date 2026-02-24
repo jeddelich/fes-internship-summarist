@@ -7,6 +7,15 @@
     background-color: #f7faf9;
     padding: 20px 8px;
     border-right: 2px solid #e2e8f0;
+    animation: slideInFromLeft 1s ease;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-200px)
+    } to {
+        transform: translateX(0);
+    }
 }
 
 .sidebar__list {

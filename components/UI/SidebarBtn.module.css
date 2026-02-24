@@ -1,25 +1,42 @@
 .btn{
     display: flex;
     position: relative;
-    gap: 16px;
     width: 100%;
     height: 100%;
     padding: 16px 0 16px 16px;
     transition: all 200ms ease;
 }
 
+.btnHoverSelected{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 16px 0 16px 16px;
+    background-color: #f0efef;
+    transition: all 200ms ease;    
+}
+
 .item{
     height: 100%;
 }
 
-.btn::before{
+.btnSelected{
     content: "";
     transform: translate(-24px, -16px);
     position: absolute;
     height: 100%;
     width: 8px;
     background-color: #2bd97c;
-    display: none;
+}
+
+.btnDisabled{
+    content: "";
+    transform: translate(-24px, -16px);
+    position: absolute;
+    height: 100%;
+    width: 8px;
+    background-color: #D92B47;    
 }
 
 .btn:hover{
@@ -40,6 +57,7 @@
     justify-content: center;
     width: 20px;
     height: 20px;
+    margin-right: 16px;
 }
 
 .icon {

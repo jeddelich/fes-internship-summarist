@@ -1,13 +1,33 @@
-import { IoHome } from "react-icons/io5";
 import styles from "./SidebarBtn.module.css";
 
-function SidebarBtn({ text, redirect, disabled, LogOut, Icon }) {
-  
-return (
+function SidebarBtn({
+  text,
+  redirect,
+  disabled,
+  LogOut,
+  Icon,
+  select,
+  active,
+}) {
+  function action() {
+    if (LogOut) {
+      LogOut();
+    } else {
+      select(text);
+    }
+  }
+
+  return (
     <li>
-      <button onClick={LogOut} className={styles.btn} style={disabled}>
+      <button onClick={action} className={active === text ? styles.btnHoverSelected : styles.btn} style={disabled}>
+        <div
+          className={active === text && !disabled ? styles.btnSelected : ""}
+        ></div>
+        <div
+          className={active === text && disabled ? styles.btnDisabled : ""}
+        ></div>
         <figure className={styles.iconWrapper}>
-        <Icon className={styles.icon}/>
+          <Icon className={styles.icon} />
         </figure>
         <div className={styles.text}>{text}</div>
       </button>
