@@ -1,4 +1,4 @@
-import Btn from "../ui-temp/Btn";
+import Btn from "../ui/Btn";
 import AccountForm from "./AccountForm";
 import ModalQuestions from "./ModalQuestions";
 import styles from "./LoginModal.module.css";
