@@ -8,7 +8,7 @@ function SidebarBtn({
   LogOut,
   Icon,
   select,
-  active,
+  active
 }) {
 
   const router = useRouter();

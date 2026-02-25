@@ -10,7 +10,7 @@ import { BsBookshelf } from "react-icons/bs";
 import { useState } from "react";
 
 function Sidebar() {
-  
+
   const [active, setActive] = useState("For you")
 
   function select(btn) {
