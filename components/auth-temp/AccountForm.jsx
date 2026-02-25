@@ -1,4 +1,4 @@
-import Btn from "../ui/Btn";
+import Btn from "../ui-temp/Btn";
 import styles from "./LoginModal.module.css";
 import { useState } from "react";
 import { signUp, LogIn } from "@/services/firebaseAuth";

@@ -1,6 +1,6 @@
 "use client"
 
-import SidebarBtn from "../ui/SidebarBtn";
+import SidebarBtn from "../ui-temp/SidebarBtn"
 import { LogOut } from "@/services/firebaseAuth";
 import styles from "./Sidebar.module.css";
 import { IoHome, IoSearch, IoSettingsOutline } from "react-icons/io5";
