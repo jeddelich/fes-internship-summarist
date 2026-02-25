@@ -1,0 +1,40 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 200px;
+    background-color: #f7faf9;
+    padding: 20px 8px;
+    border-right: 2px solid #e2e8f0;
+    animation: slideInFromLeft 1s ease;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-200px)
+    } to {
+        transform: translateX(0);
+    }
+}
+
+.sidebar__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.logoWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+}
+
+.logo{
+    width: 100%;
+    height: 100%;
+}
+
