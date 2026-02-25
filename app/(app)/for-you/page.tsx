@@ -20,8 +20,6 @@ export default function dashboard() {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <section className={styles.forYou}>
-    <Sidebar />
-    </section>
+    <div className="absolute top-0 right-0">For you</div>
   )
 }

@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import styles from "./SidebarBtn.module.css";
 
 function SidebarBtn({
@@ -9,9 +10,15 @@ function SidebarBtn({
   select,
   active,
 }) {
+
+  const router = useRouter();
+
   function action() {
     if (LogOut) {
       LogOut();
+    } else if (redirect) {
+      select(text);
+      router.push(redirect);
     } else {
       select(text);
     }

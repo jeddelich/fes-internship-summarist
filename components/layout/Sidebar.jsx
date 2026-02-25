@@ -1,3 +1,5 @@
+"use client"
+
 import SidebarBtn from "../ui/SidebarBtn";
 import { LogOut } from "@/services/firebaseAuth";
 import styles from "./Sidebar.module.css";
