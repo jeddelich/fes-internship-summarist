@@ -4,7 +4,7 @@ import { useState } from "react";
 import { signUp, LogIn } from "@/services/firebaseAuth";
 import { useRouter } from "next/navigation";
 
-function AccountForm({ type, style }) {
+function AccountForm({ type, style, closeModal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -16,6 +16,7 @@ function AccountForm({ type, style }) {
       signUp(email, password);
     }
     if (type === "Login") {
+      closeModal()
       LogIn(email, password);
     }
   }

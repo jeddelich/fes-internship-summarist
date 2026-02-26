@@ -40,9 +40,9 @@ export const LogIn = async (email, password) => {
 };
 
 export const LogOut = async () => {
+  
   try {
     await signOut(auth);
-    window.location.href = "http://localhost:3000/";
   } catch (error) {
     console.error("Error logging out:", error);
   }

@@ -1,0 +1,69 @@
+.settings{
+    height: 100vh;
+}
+
+.container{
+    display: flex;
+    margin: 40px 0;
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+    margin: 0 32px;
+    width: 100%;
+}
+
+.title,
+.subtitle,
+.content {
+    color: #032b41;
+}
+
+.title{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.separator{
+    background-color: gray;
+    margin: 16px 0;
+    opacity: 0.2;
+    height: 1px;
+    width: 100%;
+}
+
+.subtitle{
+    font-size: 18px;
+    margin-top: 16px;
+    font-weight: bold;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+}
+
+.content{
+    margin: 8px 0;
+}
+
+.loggedOut{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loggedOutImgWrapper{
+    width: 300px;
+    margin: 24px 24px 24px 0;
+}
+
+.loggedOutImg{
+    width: 100%;
+    height: auto;
+}
+
+.loggedOutSubtitle{
+    margin-bottom: 24px;
+}

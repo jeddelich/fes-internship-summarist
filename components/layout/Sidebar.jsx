@@ -8,10 +8,12 @@ import { FaHighlighter, FaQuestionCircle } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 import { BsBookshelf } from "react-icons/bs";
 import { useState } from "react";
+import { useAuth } from "../../context/AuthContext"
 
 function Sidebar() {
 
   const [active, setActive] = useState("For you")
+  const { user } = useAuth()
 
   function select(btn) {
     setActive(btn)
@@ -29,7 +31,7 @@ function Sidebar() {
         <SidebarBtn Icon={IoSearch} disabled={{cursor: "not-allowed"}} text="Search" select={select} active={active} />
         <SidebarBtn Icon={IoSettingsOutline} text="Settings" redirect="/settings" select={select} active={active} />
         <SidebarBtn Icon={FaQuestionCircle} disabled={{cursor: "not-allowed"}} text="Help & Support" select={select} active={active} />
-        <SidebarBtn Icon={MdLogout} text="Logout" LogOut={LogOut} />
+        <SidebarBtn Icon={MdLogout} text={user ? "Logout" : "Login"} LogOut={LogOut} />
       </ul>
     </nav>
   );
