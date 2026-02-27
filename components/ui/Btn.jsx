@@ -1,6 +1,7 @@
+
 import styles from "./Btn.module.css";
 
-function Btn({ text, color, icon, wrapper, style, type = "button", onClick }) {
+function Btn({ text, color, icon = null, wrapper, style, type = "button", onClick }) {
   return (
     <div className={wrapper}>
       <button
