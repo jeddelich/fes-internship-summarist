@@ -9,7 +9,8 @@ function LoginModal({ closeModal, openSignUp, openResetPassword, activeModal}) {
 
   function handleGuestLogin(e) {
     e.preventDefault();
-    LogIn("guest@gmail.com", "guest123");
+    closeModal()
+    LogIn("summaristguest@gmail.com", "guest123");
   }
 
   return (
@@ -38,7 +39,7 @@ function LoginModal({ closeModal, openSignUp, openResetPassword, activeModal}) {
         <div className={styles.separator}>
           <span className={styles.separatorText}>or</span>
         </div>
-        <AccountForm type="Login" />
+        <AccountForm type="Login" closeModal={closeModal}/>
         <ModalQuestions
           prompt="Don't have an account? Sign up"
           openSignUp={openSignUp}

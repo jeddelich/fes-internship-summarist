@@ -5,18 +5,22 @@ function SidebarBtn({
   text,
   redirect,
   disabled,
-  LogOut,
+  LogInOrOut,
   Icon,
   select,
-  active
+  active,
 }) {
 
   const router = useRouter();
 
-  function action() {
-    if (LogOut) {
-      LogOut();
-    } else if (redirect) {
+  function action(e) {
+    if (LogInOrOut) {
+      LogInOrOut(e);
+    } else if (openLogin) {
+      openLogin()
+      console.log("hello")
+    }
+    else if (redirect) {
       select(text);
       router.push(redirect);
     } else {
