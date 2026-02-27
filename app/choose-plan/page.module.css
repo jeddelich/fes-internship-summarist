@@ -9,7 +9,7 @@
 }
 
 .h1,
-.h2 {
+.h3 {
     color: #ffffff;    
 }
 
@@ -23,7 +23,7 @@
     margin-bottom: 32px;
 }
 
-.h2{
+.h3{
     font-weight: 400;
     font-size: 20px;
 }
@@ -48,7 +48,7 @@
 /* BENEFITS */
 
 .benefits{
-    margin: 80px 0;
+    margin: 64px 0 40px 0;
     display: flex;
     justify-content: center;
 }
@@ -88,4 +88,95 @@
 .icon{
     width: 100%;
     height: 100%;
+}
+
+/* CHOOSE PLAN */
+
+.choosePlan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 32px;
+}
+
+.h2,
+.planTitle,
+.price{
+    color: #032b41;
+}
+
+.planPackage{
+    display: flex;
+    gap: 24px;
+    border: 4px solid lightgray;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 24px;
+    width: 640px;
+    background-color: #f1f6f4;
+}
+
+.planTitle,
+.price{
+    font-weight: bold;
+}
+
+.planTitle{
+    font-size: 18px;
+}
+
+.price{
+    font-size: 24px;
+}
+
+.trialInfo{
+    font-size: 14px;
+    opacity: 50%;
+}
+
+.selectionCircle{
+    width: 24px;
+    height: 24px;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectionDot{
+    width: 4px;
+    height: 4px;
+    background-color: black;
+    border: 3px solid black;
+    border-radius: 50%;
+}
+
+/* SEPARATOR */
+
+.separator{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin: 24px 0;
+}
+
+.separatorLine,
+.separatorText{
+    color: gray;
+}
+
+.separatorLine{
+    width: 100px;
+    opacity: 50%;
+}
+
+.separatorText{
+    font-size: 14px;
 }
