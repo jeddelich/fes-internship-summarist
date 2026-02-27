@@ -10,7 +10,7 @@ function page() {
         <h1 className={styles.h1}>
           Get unlimited access to many amazing books to read
         </h1>
-        <h3 className={styles.h3}>
+        <h3 className={styles.h4}>
           Turn ordinary moments into amazing learning opportunities
         </h3>
         <figure className={styles.imgWrapper}>
@@ -82,6 +82,40 @@ function page() {
           </div>
         </div>
       </section>
+
+      <footer className={styles.footer}>
+        <div className={styles.footerLists}>
+          <ul className={styles.footerList}>
+            <h3 className={styles.h3}>Actions</h3>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Summarist Magazine</a></li>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Cancel Subscription</a></li>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Help</a></li>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Contact us</a></li>
+          </ul>
+          <ul className={styles.footerList}>
+            <h3 className={styles.h3}>Useful Links</h3>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Pricing</a></li>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Summarist Business</a></li>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Gift Cards</a></li>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Authors & Publishers</a></li>
+          </ul>
+          <ul className={styles.footerList}>
+            <h3 className={styles.h3}>Company</h3>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>About</a></li>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Careers</a></li>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Partners</a></li>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Code of Conduct</a></li>
+          </ul>
+          <ul className={styles.footerList}>
+            <h3 className={styles.h3}>Other</h3>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Sitemap</a></li>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Legal Notice</a></li>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Terms of Service</a></li>
+            <li className={styles.footerListItem}><a className={styles.footerLink}>Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div className={styles.copyright}>Copyright &copy; 2026 Summarist.</div>
+      </footer>
     </div>
   );
 }
