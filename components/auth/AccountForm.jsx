@@ -1,3 +1,5 @@
+"use client"
+
 import Btn from "../ui/Btn";
 import styles from "./LoginModal.module.css";
 import { useState } from "react";

@@ -10,7 +10,7 @@ import { BsBookshelf } from "react-icons/bs";
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext"
 
-function Sidebar() {
+function Sidebar({ openLogin }) {
 
   const [active, setActive] = useState("For you")
   const { user } = useAuth()
@@ -31,7 +31,7 @@ function Sidebar() {
         <SidebarBtn Icon={IoSearch} disabled={{cursor: "not-allowed"}} text="Search" select={select} active={active} />
         <SidebarBtn Icon={IoSettingsOutline} text="Settings" redirect="/settings" select={select} active={active} />
         <SidebarBtn Icon={FaQuestionCircle} disabled={{cursor: "not-allowed"}} text="Help & Support" select={select} active={active} />
-        <SidebarBtn Icon={MdLogout} text={user ? "Logout" : "Login"} LogOut={LogOut} />
+        <SidebarBtn Icon={MdLogout} text={user ? "Logout" : "Login"} LogInOrOut={ user ? LogOut : openLogin} />
       </ul>
     </nav>
   );
