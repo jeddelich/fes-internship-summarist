@@ -16,11 +16,7 @@ function SidebarBtn({
   function action(e) {
     if (LogInOrOut) {
       LogInOrOut(e);
-    } else if (openLogin) {
-      openLogin()
-      console.log("hello")
-    }
-    else if (redirect) {
+    } else if (redirect) {
       select(text);
       router.push(redirect);
     } else {
