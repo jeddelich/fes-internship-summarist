@@ -2,7 +2,8 @@ import Btn from "../ui/Btn";
 import styles from "./LoginModal.module.css";
 import { useState } from "react";
 import { signUp, LogIn } from "@/services/firebaseAuth";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"
+import managePlan from "@/services/firebaseFirestore"
 
 function AccountForm({ type, style, closeModal }) {
   const [email, setEmail] = useState("");
@@ -13,6 +14,7 @@ function AccountForm({ type, style, closeModal }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (type === "Sign Up") {
+      closeModal()
       signUp(email, password);
     }
     if (type === "Login") {

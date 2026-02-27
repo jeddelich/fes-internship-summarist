@@ -6,6 +6,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "@/services/firebase";
+import managePlan from "./firebaseFirestore";
 
 export const signUp = async (email, password) => {
   
@@ -14,7 +15,9 @@ export const signUp = async (email, password) => {
       auth,
       email,
       password,
-    );
+    )
+    const user = userCredential.user
+    managePlan(user)
   } catch (error) {
     if (error.code === "auth/email-already-in-use") {
       alert("Account already exists. Please try logging in or using a different email instead! You can also reset your password if you've forgotten it.");

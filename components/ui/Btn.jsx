@@ -1,8 +1,8 @@
 import styles from "./Btn.module.css";
 
-function Btn({ text, color, icon, width, style, type = "button", onClick }) {
+function Btn({ text, color, icon, wrapper, style, type = "button", onClick }) {
   return (
-    <div className={width}>
+    <div className={wrapper}>
       <button
         className={`${styles.btn} ${color}`}
         type={type}

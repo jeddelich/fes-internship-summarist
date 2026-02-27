@@ -10,7 +10,7 @@ function LoginModal({ closeModal, openSignUp, openResetPassword, activeModal}) {
   function handleGuestLogin(e) {
     e.preventDefault();
     closeModal()
-    LogIn("guest@gmail.com", "guest123");
+    LogIn("summaristguest@gmail.com", "guest123");
   }
 
   return (

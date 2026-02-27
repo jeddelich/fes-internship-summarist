@@ -24,7 +24,7 @@ function SignUpModal({ closeModal, openLogin, activeModal}) {
         <div className={styles.separator}>
           <span className={styles.separatorText}>or</span>
         </div>
-        <AccountForm type="Sign Up" />
+        <AccountForm type="Sign Up" closeModal={closeModal}/>
         <ModalQuestions
           prompt="Already have an account? Log in"
             openLogin={openLogin}
