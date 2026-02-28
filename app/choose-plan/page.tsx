@@ -12,6 +12,7 @@ import { useState } from "react";
 function page() {
 
   const [questionOpen, setQuestionOpen] = useState<number | null>(1) 
+  const [planSelect, setPlanSelect] = useState<number>(1)
 
   function purchase() {
     console.log("purchase");
@@ -21,6 +22,11 @@ function toggleQuestion(index: number) {
   setQuestionOpen(questionOpen === index ? null : index)
 }
 
+function togglePlanSelect(index: number) {
+  if (!(planSelect === index)) {
+    setPlanSelect(index)
+  } 
+}
 
   return (
     <div className={styles.page}>
@@ -75,36 +81,42 @@ function toggleQuestion(index: number) {
 
         <section className={styles.choosePlan}>
           <h2 className={styles.h2}>Choose the plan that fits you</h2>
-          <div className={styles.planPackage}>
+          <button className={planSelect === 1 ? `${styles.planPackage} + ${styles.planSelected}` : styles.planPackage} onClick={() => togglePlanSelect(1)}>
             <figure className={styles.selectionCircle}>
+              {
+                planSelect === 1 && 
               <div className={styles.selectionDot}></div>
+              }
             </figure>
             <div className={styles.planDescription}>
               <h4 className={styles.planTitle}>Premium Plus Yearly</h4>
               <div className={styles.price}>$99.99/year</div>
               <div className={styles.trialInfo}>7-day free trial included</div>
             </div>
-          </div>
+          </button>
           <div className={styles.separator}>
             <hr className={styles.separatorLine} />
             <div className={styles.separatorText}>or</div>
             <hr className={styles.separatorLine} />
           </div>
-          <div className={styles.planPackage}>
+          <button className={planSelect === 2 ? `${styles.planPackage} + ${styles.planSelected}` : styles.planPackage} onClick={() => togglePlanSelect(2)}>
             <figure className={styles.selectionCircle}>
+                     {
+                planSelect === 2 && 
               <div className={styles.selectionDot}></div>
+              }
             </figure>
             <div className={styles.planDescription}>
               <h4 className={styles.planTitle}>Premium Monthly</h4>
               <div className={styles.price}>$9.99/month</div>
               <div className={styles.trialInfo}>No trial included</div>
             </div>
-          </div>
+          </button>
         </section>
         <div className={styles.getStarted}>
           <Btn
             text="Start your free 7-day trial"
-            color="bg-[#2bd97c]! text-[#032b41]!"
+            color="bg-[#2bd97c]! text-[#032b41]! active:bg-[#20ba68]! hover:scale-102"
             style={{ width: "280px" }}
             wrapper="flex justify-center"
             onClick={purchase}

@@ -147,11 +147,22 @@
     padding: 24px;
     width: 640px;
     background-color: #f1f6f4;
+    transition: all 200ms ease;
+}
+
+.planSelected{
+    border-color: #2bd97c;
 }
 
 .planTitle,
 .price{
     font-weight: bold;
+}
+
+.planDescription{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .planTitle{
