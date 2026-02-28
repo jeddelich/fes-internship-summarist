@@ -10,6 +10,7 @@ import { BsChevronDown } from "react-icons/bs";
 import { useState } from "react";
 import Plan from "@/components/ui/Plan";
 import Benefit from "@/components/ui/Benefit";
+import QuestionSection from "@/components/ui/QuestionSection";
 
 function page() {
   const [questionOpen, setQuestionOpen] = useState<number | null>(1);
@@ -109,137 +110,49 @@ function page() {
       </div>
 
       <section className={styles.FAQ}>
-        <ul className={styles.questionsList}>
-          <li className={styles.questionsSection}>
-            <button
-              className={styles.clickableArea}
-              onClick={() => toggleQuestion(1)}
-            >
-              <h5 className={styles.question}>
-                How does the free 7-day trial work?
-              </h5>
-              <figure className={styles.arrowWrapper}>
-                <BsChevronDown
-                  className={
-                    questionOpen === 1
-                      ? `${styles.arrow} + ${styles.arrowUp}`
-                      : styles.arrow
-                  }
-                />
-              </figure>
-            </button>
-            <div
-              className={
-                questionOpen === 1
-                  ? `${styles.answer} + ${styles.answerVisible}`
-                  : styles.answer
-              }
-            >
-              Begin your complimentary 7-day trial with a Summarist annual
+        <ul className={styles.questionList}>
+          <QuestionSection
+            question="How does the free 7-day trial work?"
+            answer="Begin your complimentary 7-day trial with a Summarist annual
               membership. You are under no obligation to continue your
               subscription, and you will only be billed when the trial period
               expires. With Premium access, you can learn at your own pace and
               as frequently as you desire, and you may terminate your
-              subscription prior to the conclusion of the 7-day free trial.
-            </div>
-            <hr className={styles.questionSeparator} />
-          </li>
-          <li className={styles.questionsSection}>
-            <button
-              className={styles.clickableArea}
-              onClick={() => toggleQuestion(2)}
-            >
-              <h5 className={styles.question}>
-                Can I switch subscriptions from monthly to yearly, or yearly to
-                monthly?
-              </h5>
-              <figure className={styles.arrowWrapper}>
-                <BsChevronDown
-                  className={
-                    questionOpen === 2
-                      ? `${styles.arrow} + ${styles.arrowUp}`
-                      : styles.arrow
-                  }
-                />
-              </figure>
-            </button>
-            <div
-              className={
-                questionOpen === 2
-                  ? `${styles.answer} + ${styles.answerVisible}`
-                  : styles.answer
-              }
-            >
-              While an annual plan is active, it is not feasible to switch to a
+            subscription prior to the conclusion of the 7-day free trial."
+            index={1}
+            questionOpen={questionOpen}
+            toggleQuestion={toggleQuestion}
+          />
+          <QuestionSection
+            question="Can I switch subscriptions from monthly to yearly, or yearly to
+                monthly?"
+            answer="While an annual plan is active, it is not feasible to switch to a
               monthly plan. However, once the current month ends, transitioning
-              from a monthly plan to an annual plan is an option.
-            </div>
-            <hr className={styles.questionSeparator} />
-          </li>
-          <li className={styles.questionsSection}>
-            <button
-              className={styles.clickableArea}
-              onClick={() => toggleQuestion(3)}
-            >
-              <h5 className={styles.question}>
-                What's included in the Premium plan?
-              </h5>
-              <figure className={styles.arrowWrapper}>
-                <BsChevronDown
-                  className={
-                    questionOpen === 3
-                      ? `${styles.arrow} + ${styles.arrowUp}`
-                      : styles.arrow
-                  }
-                />
-              </figure>
-            </button>
-            <div
-              className={
-                questionOpen === 3
-                  ? `${styles.answer} + ${styles.answerVisible}`
-                  : styles.answer
-              }
-            >
-              Premium membership provides you with the ultimate Summarist
+              from a monthly plan to an annual plan is an option."
+            index={2}
+            questionOpen={questionOpen}
+            toggleQuestion={toggleQuestion}
+          />
+          <QuestionSection
+            question="What's included in the Premium plan?"
+            answer="Premium membership provides you with the ultimate Summarist
               experience, including unrestricted entry to many best-selling
               books high-quality audio, the ability to download titles for
-              offline reading, and the option to send your reads to your Kindle.
-            </div>
-            <hr className={styles.questionSeparator} />
-          </li>
-          <li className={styles.questionsSection}>
-            <button
-              className={styles.clickableArea}
-              onClick={() => toggleQuestion(4)}
-            >
-              <h5 className={styles.question}>
-                Can I cancel during my trial or subscription?
-              </h5>
-              <figure className={styles.arrowWrapper}>
-                <BsChevronDown
-                  className={
-                    questionOpen === 4
-                      ? `${styles.arrow} + ${styles.arrowUp}`
-                      : styles.arrow
-                  }
-                />
-              </figure>
-            </button>
-            <div
-              className={
-                questionOpen === 4
-                  ? `${styles.answer} + ${styles.answerVisible}`
-                  : styles.answer
-              }
-            >
-              You will not be charged if you cancel your trial before its
+              offline reading, and the option to send your reads to your Kindle."
+            index={3}
+            questionOpen={questionOpen}
+            toggleQuestion={toggleQuestion}
+          />
+          <QuestionSection
+            question="Can I cancel during my trial or subscription?"
+            answer="You will not be charged if you cancel your trial before its
               conclusion. While you will not have complete access to the entire
               Summarist library, you can still expand your knowledge with one
-              curated book per day.
-            </div>
-            <hr className={styles.questionSeparator} />
-          </li>
+              curated book per day."
+            index={4}
+            questionOpen={questionOpen}
+            toggleQuestion={toggleQuestion}
+          />
         </ul>
       </section>
 
