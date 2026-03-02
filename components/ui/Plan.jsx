@@ -1,17 +1,17 @@
 import styles from "./Plan.module.css"
 
-function Plan({ title, price, trialInfo, index, togglePlanSelect, planSelect}) {
+function Plan({ title, price, trialInfo, priceId, togglePlanSelect, planSelect}) {
   return (
     <button
       className={
-        planSelect === index
+        planSelect === priceId
           ? `${styles.planPackage} + ${styles.planSelected}`
           : styles.planPackage
       }
-      onClick={() => togglePlanSelect(index)}
+      onClick={() => togglePlanSelect(priceId)}
     >
       <figure className={styles.selectionCircle}>
-        {planSelect === index && <div className={styles.selectionDot}></div>}
+        {planSelect === priceId && <div className={styles.selectionDot}></div>}
       </figure>
       <div className={styles.planDescription}>
         <h4 className={styles.planTitle}>{title}</h4>

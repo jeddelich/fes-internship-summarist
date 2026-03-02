@@ -10,6 +10,7 @@ import SignUpModal from "@/components/auth/SignUpModal";
 import ResetPasswordModal from "@/components/auth/ResetPasswordModal"
 import { getUser } from "@/services/firebaseFirestore";
 import { useEffect, useState } from "react";
+import { auth } from "@/services/firebase";
 
 type FirestoreUser = {
   email: string,
@@ -31,7 +32,7 @@ function Settings() {
       }
 
     fetchUserData()
-
+    console.log(auth.currentUser)
     }
 
   }, [user?.uid])
