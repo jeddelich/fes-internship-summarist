@@ -1,3 +1,5 @@
+"use client";
+
 import Btn from "../ui/Btn";
 import AccountForm from "./AccountForm";
 import ModalQuestions from "./ModalQuestions";
