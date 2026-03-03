@@ -1,3 +1,5 @@
+throw new Error("THIS IS THE REAL FIREBASE FILE");
+
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getFunctions } from "firebase/functions";

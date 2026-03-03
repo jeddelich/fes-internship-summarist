@@ -2,10 +2,12 @@
 
 import { httpsCallable } from "firebase/functions";
 import { functions } from "./firebase";
-
+import { auth } from "./firebase"; 
 export const purchase = async (priceId) => {
   
     try {
+    console.log("PROJECT ID:", auth.currentUser);
+    console.log("FUNCTIONS REGION:", functions._region);
     const createCheckout = httpsCallable(
       functions,
       "ext-firestore-stripe-payments-createCheckoutSession"
