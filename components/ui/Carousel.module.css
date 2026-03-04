@@ -1,0 +1,33 @@
+.book{
+    padding: 0 20px;
+}
+
+.metadata {
+  display: flex;
+  flex-direction: column;
+  margin: 12px 0;
+  gap: 6px;
+}
+
+.title {
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 600;
+  color: #032b41;
+}
+
+.author,
+.subTitle {
+  font-size: 14px;
+}
+
+.author {
+    font-weight: 300;
+    opacity: 50%;
+}
+
+.subTitle {
+  font-weight: 400;
+  opacity: 75%;
+  line-height: normal;
+}

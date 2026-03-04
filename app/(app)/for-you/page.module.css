@@ -13,6 +13,20 @@
   width: 100%;
 }
 
+.slick-slide {
+  padding: 0 8px;
+}
+
+.slick-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.slick-track {
+  will-change: transform;
+}
+
 .sectionTitle,
 .subTitle,
 .audioLength,

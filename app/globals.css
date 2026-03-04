@@ -5,6 +5,14 @@ nextjs-portal {
   display: none !important;
 } */
 
+.slick-slider {
+  width: 100%;
+}
+
+.slick-list {
+  width: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
