@@ -10,13 +10,27 @@ import { useState } from "react";
 import Plan from "@/components/ui/Plan";
 import Benefit from "@/components/ui/Benefit";
 import QuestionSection from "@/components/ui/QuestionSection";
-import { purchase } from "@/services/stripe";
+import { startCheckout } from "@/lib/startCheckout"; 
+
+const STRIPE_PRICES = {
+  price_1T5hV8FfrSO4dTKFreZeB4wN: "price_premium_monthly",
+  price_1T5hUdFfrSO4dTKF6bzFeVf5: "price_premium_yearly",
+};
 
 function page() {
   const YEARLY_PRICE = "price_1T5hUdFfrSO4dTKF6bzFeVf5";
   const MONTHLY_PRICE = "price_1T5hV8FfrSO4dTKFreZeB4wN";
   const [questionOpen, setQuestionOpen] = useState<number | null>(1);
   const [planSelect, setPlanSelect] = useState<string>(YEARLY_PRICE);
+
+  const handleSubscribe = async (planSelect: string) => {
+  try {
+    await startCheckout(planSelect);
+  } catch (err) {
+    console.error(err);
+    alert("Checkout failed");
+  }
+};
 
   function toggleQuestion(index: number) {
     setQuestionOpen(questionOpen === index ? null : index);
@@ -93,7 +107,7 @@ function page() {
           />
         </section>
         <div className={styles.getStarted}>
-          {/* <Btn
+          <Btn
             text={
               planSelect === YEARLY_PRICE
                 ? "Start your free 7-day trial"
@@ -102,18 +116,8 @@ function page() {
             color="bg-[#2bd97c]! text-[#032b41]! active:bg-[#20ba68]! hover:scale-102"
             style={{ width: "280px" }}
             wrapper="flex justify-center"
-            onClick={() => purchase(planSelect)}
-          /> */}
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              console.log("CLICKED");
-              purchase(planSelect);
-            }}
-          >
-            TEST STRIPE
-          </button>
+            onClick={() => handleSubscribe(planSelect)}
+          />
           <div className={styles.smallPrint}>
             Cancel your trial at any time before it ends, and you won’t be
             charged.
