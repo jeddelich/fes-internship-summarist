@@ -2,6 +2,7 @@
 import { useAuth } from "@/context/AuthContext";
 import { useEffect, useState } from "react";
 import getSelectedBook from "@/api/selected-book";
+import getRecommendedBooks from "@/api/recommended-books"
 import styles from "./page.module.css";
 import { FaCirclePlay } from "react-icons/fa6";
 
@@ -27,17 +28,20 @@ type Book = {
 export default function dashboard() {
   const { user, loading } = useAuth();
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  const [recommendedBooks, setRecommendedBooks] = useState<Book[] | null>(null);
 
   useEffect(() => {
-    if (!selectedBook) {
+    if (!selectedBook && !recommendedBooks) {
       async function fetchBooks() {
         setSelectedBook(await getSelectedBook());
+        setRecommendedBooks(await getRecommendedBooks());
       }
       fetchBooks();
     } else {
-      console.log(selectedBook);
+      console.log("selected book:", selectedBook);
+      console.log("recommended books:", recommendedBooks);
     }
-  }, [selectedBook]);
+  }, [recommendedBooks]);
 
   if (loading) return <div>Loading...</div>;
 
