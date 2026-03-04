@@ -48,7 +48,7 @@ export default function dashboard() {
   return (
     <div className={styles.forYou}>
     <section className={styles.section}>
-      <h2 className={styles.sectionTitle}>Selected just for you</h2>
+      <h2 className={styles.sectionTitle}>Selected Just For You</h2>
       <button className={styles.selectedBox}>
         <div className={styles.subTitle}>
           {selectedBook?.subTitle}
@@ -67,6 +67,12 @@ export default function dashboard() {
           </div>
         </div>
       </button>
+    </section>
+
+    <section className={styles.section}>
+      <h2 className={styles.sectionTitle}>Recommended For You</h2>  
+      <h4 className={styles.sectionSubtitle}>We think you'll like these</h4>    
+      {/* insert carousel component here ... copy and edit from previous project? */}
     </section>
     </div>
   );
