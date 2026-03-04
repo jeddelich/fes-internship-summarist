@@ -1,0 +1,47 @@
+.clickableArea{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.answer{
+    margin-top: 24px;
+    opacity: 75%;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 300ms ease;
+}
+
+.answerVisible{
+    max-height: 80px;
+}
+
+.questionSeparator{
+    margin: 24px 0;
+    color: gray;
+    opacity: 25%;
+}
+
+.arrowWrapper{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow{
+    width: 100%;
+    height: auto;
+    transition: all 300ms ease;
+}
+
+.arrowUp{
+    transform: rotate(180deg);
+}

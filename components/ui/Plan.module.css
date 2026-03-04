@@ -1,0 +1,62 @@
+.planTitle,
+.price{
+    color: #032b41;
+}
+
+.planPackage{
+    display: flex;
+    gap: 24px;
+    border: 4px solid lightgray;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 24px;
+    width: 640px;
+    background-color: #f1f6f4;
+    transition: all 200ms ease;
+}
+
+.planSelected{
+    border-color: #2bd97c;
+}
+
+.planTitle,
+.price{
+    font-weight: bold;
+}
+
+.planDescription{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.planTitle{
+    font-size: 18px;
+}
+
+.price{
+    font-size: 24px;
+}
+
+.trialInfo{
+    font-size: 14px;
+    opacity: 50%;
+}
+
+.selectionCircle{
+    width: 24px;
+    height: 24px;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectionDot{
+    width: 4px;
+    height: 4px;
+    background-color: black;
+    border: 3px solid black;
+    border-radius: 50%;
+}

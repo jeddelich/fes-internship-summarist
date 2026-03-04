@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
@@ -8,10 +8,10 @@ const firebaseConfig = {
   projectId: "fes-internship-summarist",
   storageBucket: "fes-internship-summarist.firebasestorage.app",
   messagingSenderId: "501281328729",
-  appId: "1:501281328729:web:bd5eba3e2f470eb142eb48"
+  appId: "1:501281328729:web:bd5eba3e2f470eb142eb48",
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
