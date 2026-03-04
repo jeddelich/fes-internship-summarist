@@ -2,6 +2,8 @@
 import { useAuth } from "@/context/AuthContext";
 import { useEffect, useState } from "react";
 import getSelectedBook from "@/api/selected-book";
+import styles from "./page.module.css";
+import { FaCirclePlay } from "react-icons/fa6";
 
 type Book = {
   id: string;
@@ -40,10 +42,28 @@ export default function dashboard() {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <>
-      {selectedBook && (
-        <div className="absolute top-0 right-0">{selectedBook.title}</div>
-      )}
-    </>
+    <div className={styles.forYou}>
+    <section className={styles.section}>
+      <h2 className={styles.sectionTitle}>Selected just for you</h2>
+      <button className={styles.selectedBox}>
+        <div className={styles.subTitle}>
+          {selectedBook?.subTitle}
+        </div>
+        <div className={styles.bookWrapper}>
+          <img src={selectedBook?.imageLink} className={styles.book} alt="" />
+        </div>
+        <div className={styles.bookMetadata}>
+          <div className={styles.title}>{selectedBook?.title}</div>
+          <div className={styles.author}>{selectedBook?.author}</div>
+          <div className={styles.bookAudio}>
+            <div className={styles.iconWrapper}>
+              <FaCirclePlay className={styles.icon} />
+            </div>
+            <div className={styles.audioLength}>3 mins 23 secs</div>
+          </div>
+        </div>
+      </button>
+    </section>
+    </div>
   );
 }
