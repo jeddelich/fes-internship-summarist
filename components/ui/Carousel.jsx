@@ -5,7 +5,7 @@ import styles from "./Carousel.module.css"
 import { FaStar } from "react-icons/fa";
 import { CiClock2 } from "react-icons/ci";
 
-function Carousel({ recommendedBooks }) {
+function Carousel({ Books }) {
 
 const sliderRef = useRef(null)
 const sliderWrapperRef = useRef(null);
@@ -55,7 +55,7 @@ useEffect(() => {
   return (
     <div ref={sliderWrapperRef}>
     <Slider ref={sliderRef} {...carouselSettings}>
-      {recommendedBooks?.map((book) => (
+      {Books?.map((book) => (
         <div key={book.id} className={styles.book}>
           <button className={styles.button}>
             <div>
