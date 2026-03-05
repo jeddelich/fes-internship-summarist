@@ -3,10 +3,11 @@ import { useAuth } from "@/context/AuthContext";
 import { useEffect, useState } from "react";
 import getSelectedBook from "@/api/selected-book";
 import getRecommendedBooks from "@/api/recommended-books";
-import getSuggestedBooks from "@/api/suggested-books"
+import getSuggestedBooks from "@/api/suggested-books";
 import styles from "./page.module.css";
 import { FaCirclePlay } from "react-icons/fa6";
 import Carousel from "@/components/ui/Carousel";
+import { getUserSubscription } from "@/services/firebaseFirestore";
 
 type Book = {
   id: string;
@@ -29,24 +30,21 @@ type Book = {
 
 export default function dashboard() {
   const { user, loading } = useAuth();
+  const [subscription, setSubscription] = useState<any>(null);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [recommendedBooks, setRecommendedBooks] = useState<Book[] | null>(null);
   const [suggestedBooks, setSuggestedBooks] = useState<Book[] | null>(null);
 
   useEffect(() => {
-    if (!selectedBook && !recommendedBooks) {
-      async function fetchBooks() {
-        setSelectedBook(await getSelectedBook());
-        setRecommendedBooks(await getRecommendedBooks());
-        setSuggestedBooks(await getSuggestedBooks());
-      }
-      fetchBooks();
-    } else {
-      console.log("selected book:", selectedBook);
-      console.log("recommended books:", recommendedBooks);
-      console.log("suggested books:", suggestedBooks);
+    async function fetchBooks() {
+      const sub = await getUserSubscription(user?.uid);
+      setSubscription(sub);
+      setSelectedBook(await getSelectedBook());
+      setRecommendedBooks(await getRecommendedBooks());
+      setSuggestedBooks(await getSuggestedBooks());
     }
-  }, [suggestedBooks]);
+    fetchBooks();
+  }, [user, setSuggestedBooks]);
 
   if (loading) return <div>Loading...</div>;
 
@@ -77,7 +75,7 @@ export default function dashboard() {
         <h4 className={styles.sectionSubtitle}>We think you'll like these</h4>
         {recommendedBooks && (
           <div style={{ margin: "20px 0" }}>
-            <Carousel Books={recommendedBooks} />
+            <Carousel Books={recommendedBooks} subscription={subscription} />
           </div>
         )}
       </section>
@@ -85,9 +83,9 @@ export default function dashboard() {
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Suggested Books</h2>
         <h4 className={styles.sectionSubtitle}>Browse those books</h4>
-        {recommendedBooks && (
+        {suggestedBooks && (
           <div style={{ margin: "16px 0" }}>
-            <Carousel Books={suggestedBooks} />
+            <Carousel Books={suggestedBooks} subscription={subscription} />
           </div>
         )}
       </section>
