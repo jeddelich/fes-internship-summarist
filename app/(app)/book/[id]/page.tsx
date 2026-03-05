@@ -1,7 +1,47 @@
-import styles from "./page.module.css";
+"use client"
 
-export default async function BookPage({ params }: { params: { id: string } }) {
-  const { id } = await params;
+import { useEffect, useState } from "react";
+import styles from "./page.module.css";
+import getBookById from "@/api/id-book"
+import { useParams } from "next/navigation";
+
+type Book = {
+  id: string;
+  author: string;
+  title: string;
+  subTitle: string;
+  imageLink: string;
+  audioLink: string;
+  totalRating: number;
+  averageRating: number;
+  keyIdeas: number;
+  type: string;
+  status: string;
+  subscriptionRequired: boolean;
+  summary: string;
+  tags: string[];
+  bookDescription: string;
+  authorDescription: string;
+};
+
+export default function BookPage() {
+
+const { id } = useParams()
+
+const [book, setBook] = useState<Book | null>(null)
+
+useEffect(() => {
+  async function fetchBookById() {
+    const fetchedBook = await getBookById(id)
+    setBook(fetchedBook)
+  }
+  fetchBookById()
+}, [])
+
+useEffect(() => {
+  console.log(book)
+}, [book])
+
   return (
     <div className={styles.bookPage}>
       <div className={styles.row}>
