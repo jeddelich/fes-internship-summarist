@@ -116,6 +116,9 @@
   width: 100%;
   height: auto;
   transition: all 200ms ease;
+}
+
+.gray{
   color: gray;
 }
 

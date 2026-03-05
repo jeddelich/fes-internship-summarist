@@ -105,7 +105,7 @@ export default function BookPage() {
           <div className={styles.featuredInfo}>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>
-                <FaStar className={`${styles.icon} + " " + ${styles.gold}`} />
+                <FaStar className={`${styles.icon} + " " + ${styles.gold} + " " + ${styles.gray}`} />
               </figure>
               <div
                 className={styles.featureText}
@@ -113,20 +113,20 @@ export default function BookPage() {
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>
-                <FaRegClock className={styles.icon} />
+                <FaRegClock className={`${styles.icon} + " " + ${styles.gray}`} />
               </figure>
               <div className={styles.featureText}>02:30</div>
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>
-                <FaMicrophoneLines className={styles.icon} />
+                <FaMicrophoneLines className={`${styles.icon} + " " + ${styles.gray}`} />
               </figure>
               <div className={styles.featureText}>{book?.type}</div>
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>
                 <FaRegLightbulb
-                  className={`${styles.icon} + " " + ${styles.orange}`}
+                  className={`${styles.icon} + " " + ${styles.orange} + " " + ${styles.gray}`}
                 />
               </figure>
               <div
