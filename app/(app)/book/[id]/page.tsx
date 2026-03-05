@@ -5,10 +5,9 @@ import styles from "./page.module.css";
 import getBookById from "@/api/id-book";
 import { useParams } from "next/navigation";
 import { FaRegLightbulb, FaStar } from "react-icons/fa";
-import { CiClock2 } from "react-icons/ci";
-import { IoMicOutline } from "react-icons/io5";
 import { PiBookOpenTextLight } from "react-icons/pi";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
+import { FaMicrophoneLines, FaRegClock } from "react-icons/fa6";
 
 type Book = {
   id: string;
@@ -56,22 +55,22 @@ export default function BookPage() {
           <hr className={styles.separator} />
           <div className={styles.featuredInfo}>
             <div className={styles.featureWrapper}>
-              <figure className={styles.iconWrapper}><FaStar /></figure>
+              <figure className={styles.iconWrapper}><FaStar className={styles.icon}/></figure>
               <div
                 className={styles.featureText}
               >{`${book?.averageRating} (${book?.totalRating} ratings)`}</div>
             </div>
             <div className={styles.featureWrapper}>
-              <figure className={styles.iconWrapper}><CiClock2 /></figure>
+              <figure className={styles.iconWrapper}><FaRegClock className={styles.icon}/></figure>
               <div className={styles.featureText}>02:30</div>
             </div>
             <div className={styles.featureWrapper}>
-              <figure className={styles.iconWrapper}><IoMicOutline /></figure>
+              <figure className={styles.iconWrapper}><FaMicrophoneLines className={styles.icon}/></figure>
               <div className={styles.featureText}>{book?.type}</div>
             </div>
             <div className={styles.featureWrapper}>
-              <figure className={styles.featureIconWrapper}>
-                <FaRegLightbulb />
+              <figure className={styles.iconWrapper}>
+                <FaRegLightbulb className={styles.icon}/>
               </figure>
               <div
                 className={styles.featureText}
@@ -81,16 +80,16 @@ export default function BookPage() {
           <hr className={styles.separator} />
           <div className={styles.buttons}>
             <button className={styles.button}>
-              <figure className={styles.buttonIconWrapper}><PiBookOpenTextLight /></figure>
+              <figure className={styles.buttonIconWrapper}><PiBookOpenTextLight className={styles.icon} /></figure>
               <div className={styles.buttonText}>Read</div>
             </button>
             <button className={styles.button}>
-              <figure className={styles.buttonIconWrapper}><IoMicOutline /></figure>
+              <figure className={styles.buttonIconWrapper}><FaMicrophoneLines className={styles.icon} /></figure>
               <div className={styles.buttonText}>Listen</div>
             </button>
           </div>
           <div className={styles.bookmark}>
-            <figure className={styles.bookmarkIconWrapper}><MdOutlineBookmarkAdd/></figure>
+            <figure className={styles.bookmarkIconWrapper}><MdOutlineBookmarkAdd className={styles.icon}/></figure>
             <div className={styles.bookmarkText}>Add Title To My Library</div>
           </div>
           <div className={styles.description}>
