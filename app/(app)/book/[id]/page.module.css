@@ -60,6 +60,9 @@
 
 .featureWrapper{
   width: 50%;
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 .featureText{
@@ -77,10 +80,16 @@
   padding: 8px 40px;
   border-radius: 4px;
   color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .bookmark{
   color: #0365f2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .bookmarkText{
