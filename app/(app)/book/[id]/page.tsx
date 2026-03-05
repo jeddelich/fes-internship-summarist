@@ -6,7 +6,7 @@ import getBookById from "@/api/id-book";
 import { useParams } from "next/navigation";
 import { FaRegLightbulb, FaStar } from "react-icons/fa";
 import { PiBookOpenTextLight } from "react-icons/pi";
-import { MdOutlineBookmarkAdd } from "react-icons/md";
+import { MdOutlineBookmark, MdOutlineBookmarkAdd } from "react-icons/md";
 import { FaMicrophoneLines, FaRegClock } from "react-icons/fa6";
 
 type Book = {
@@ -30,8 +30,9 @@ type Book = {
 
 export default function BookPage() {
   const { id } = useParams();
-
+  
   const [book, setBook] = useState<Book | null>(null);
+  const [bookmark, setBookmark] = useState<boolean>(false)
 
   useEffect(() => {
     async function fetchBookById() {
@@ -55,7 +56,7 @@ export default function BookPage() {
           <hr className={styles.separator} />
           <div className={styles.featuredInfo}>
             <div className={styles.featureWrapper}>
-              <figure className={styles.iconWrapper}><FaStar className={styles.icon}/></figure>
+            <figure className={styles.iconWrapper}><FaStar className={`${styles.icon} + " " + ${styles.gold}`}/></figure>
               <div
                 className={styles.featureText}
               >{`${book?.averageRating} (${book?.totalRating} ratings)`}</div>
@@ -70,7 +71,7 @@ export default function BookPage() {
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>
-                <FaRegLightbulb className={styles.icon}/>
+              <FaRegLightbulb className={`${styles.icon} + " " + ${styles.orange}`}/>
               </figure>
               <div
                 className={styles.featureText}
@@ -88,10 +89,15 @@ export default function BookPage() {
               <div className={styles.buttonText}>Listen</div>
             </button>
           </div>
-          <div className={styles.bookmark}>
-            <figure className={styles.bookmarkIconWrapper}><MdOutlineBookmarkAdd className={styles.icon}/></figure>
+          <a className={styles.bookmark} onClick={() => setBookmark(!bookmark)}>
+            <figure className={styles.bookmarkIconWrapper}>
+              {
+                !bookmark ? 
+                <MdOutlineBookmarkAdd className={styles.icon}/> : <MdOutlineBookmark className={styles.icon}/>
+              }
+              </figure>
             <div className={styles.bookmarkText}>Add Title To My Library</div>
-          </div>
+          </a>
           <div className={styles.description}>
             <div className={styles.header}>What's it about?</div>
             <div className={styles.tags}>
