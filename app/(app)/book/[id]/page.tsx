@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from "react";
 import styles from "./page.module.css";
-import getBookById from "@/api/id-book"
+import getBookById from "@/api/id-book";
 import { useParams } from "next/navigation";
 
 type Book = {
@@ -25,22 +25,21 @@ type Book = {
 };
 
 export default function BookPage() {
+  const { id } = useParams();
 
-const { id } = useParams()
+  const [book, setBook] = useState<Book | null>(null);
 
-const [book, setBook] = useState<Book | null>(null)
+  useEffect(() => {
+    async function fetchBookById() {
+      const fetchedBook = await getBookById(id);
+      setBook(fetchedBook);
+    }
+    fetchBookById();
+  }, []);
 
-useEffect(() => {
-  async function fetchBookById() {
-    const fetchedBook = await getBookById(id)
-    setBook(fetchedBook)
-  }
-  fetchBookById()
-}, [])
-
-useEffect(() => {
-  console.log(book)
-}, [book])
+  useEffect(() => {
+    console.log(book);
+  }, [book]);
 
   return (
     <div className={styles.bookPage}>
@@ -49,11 +48,13 @@ useEffect(() => {
           <h1 className={styles.title}>{book?.title}</h1>
           <h3 className={styles.author}>{book?.author}</h3>
           <h2 className={styles.subtitle}>{book?.subTitle}</h2>
-          <hr />
+          <hr className={styles.separator} />
           <div className={styles.featuredInfo}>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>{/* icon */}</figure>
-              <div className={styles.featureText}>{`${book?.averageRating} (${book?.totalRating} ratings)`}</div>
+              <div
+                className={styles.featureText}
+              >{`${book?.averageRating} (${book?.totalRating} ratings)`}</div>
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>{/* icon */}</figure>
@@ -67,10 +68,12 @@ useEffect(() => {
               <figure className={styles.featureIconWrapper}>
                 {/* icon */}
               </figure>
-              <div className={styles.featureText}>{`${book?.keyIdeas} Key ideas`}</div>
+              <div
+                className={styles.featureText}
+              >{`${book?.keyIdeas} Key ideas`}</div>
             </div>
           </div>
-          <hr />
+          <hr className={styles.separator} />
           <div className={styles.buttons}>
             <button className={styles.button}>
               <figure className={styles.buttonIconWrapper}>{/* icon */}</figure>
@@ -85,15 +88,14 @@ useEffect(() => {
             <figure className={styles.bookmarkIconWrapper}>{/* icon */}</figure>
             <div className={styles.bookmarkText}>Add Title To My Library</div>
           </div>
-          <div className={styles.description
-          }>
+          <div className={styles.description}>
             <div className={styles.header}>What's it about?</div>
             <div className={styles.tags}>
-            {
-              book?.tags.map((tag, index) => (
-                <div className={styles.tag} key={index}>{tag}</div>
-              ))
-            }
+              {book?.tags.map((tag, index) => (
+                <div className={styles.tag} key={index}>
+                  {tag}
+                </div>
+              ))}
             </div>
             <div className={styles.para}>{book?.bookDescription}</div>
             <div className={styles.header}>About the author</div>

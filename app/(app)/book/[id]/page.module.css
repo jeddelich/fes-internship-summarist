@@ -1,3 +1,11 @@
+.title,
+.author,
+.subtitle,
+.featureText,
+.header {
+  color: #032b41;
+}
+
 .bookPage {
   width: 100%;
   padding: 20px 24px;
@@ -5,7 +13,99 @@
   flex-direction: column;
 }
 
+.bookInfo{
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  gap: 12px;
+}
+
+.bookWrapper{
+  width: 35%;
+}
+
+.book{
+  width: 100%;
+  height: auto;
+}
+
 .row{
     display: flex;
     width: 100%;
+}
+
+.separator{
+  opacity: 20%;
+}
+
+.title{
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.author{
+  font-weight: 600;
+}
+
+.subtitle{
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.featuredInfo{
+  display: flex;
+  width: 400px;
+  flex-wrap: wrap;
+}
+
+.featureWrapper{
+  width: 50%;
+}
+
+.featureText{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.buttons{
+  display: flex;
+  gap: 16px;
+}
+
+.button{
+  background-color: #032b41;
+  padding: 8px 40px;
+  border-radius: 4px;
+  color: white;
+}
+
+.bookmark{
+  color: #0365f2;
+}
+
+.bookmarkText{
+  font-weight: 500;
+}
+
+.description{
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  gap: 16px;
+}
+
+.header{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.tags{
+  display: flex;
+  gap: 16px;
+}
+
+.tag{
+  background-color: rgba(211, 211, 211, 0.4);
+  border-radius: 4px;
+  padding: 8px;
 }
