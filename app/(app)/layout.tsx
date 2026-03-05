@@ -6,6 +6,8 @@ import LoginModal from "@/components/auth/LoginModal";
 import SignUpModal from "@/components/auth/SignUpModal";
 import ResetPasswordModal from "@/components/auth/ResetPasswordModal";
 import useAuthModal from "@/components/hooks/useAuthModal";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function AppLayout({ children }: { children: ReactNode }) {
   
@@ -37,7 +39,7 @@ return (
         />
       )}
       <Sidebar openLogin={openLogin} />
-      <main className="flex-1 ml-50!">{children}</main>
+      <main className="flex-1 ml-50! min-w-0">{children}</main>
     </div>
   );
 }
