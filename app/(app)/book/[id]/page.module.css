@@ -1,0 +1,11 @@
+.bookPage {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.row{
+    display: flex;
+    width: 100%;
+}
