@@ -46,14 +46,14 @@ useEffect(() => {
     <div className={styles.bookPage}>
       <div className={styles.row}>
         <div className={styles.bookInfo}>
-          <h1 className={styles.title}></h1>
-          <h3 className={styles.author}></h3>
-          <h2 className={styles.subtitle}></h2>
+          <h1 className={styles.title}>{book?.title}</h1>
+          <h3 className={styles.author}>{book?.author}</h3>
+          <h2 className={styles.subtitle}>{book?.subTitle}</h2>
           <hr />
           <div className={styles.featuredInfo}>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>{/* icon */}</figure>
-              <div className={styles.featureText}></div>
+              <div className={styles.featureText}>{`${book?.averageRating} (${book?.totalRating} ratings)`}</div>
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>{/* icon */}</figure>
@@ -61,24 +61,24 @@ useEffect(() => {
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>{/* icon */}</figure>
-              <div className={styles.featureText}></div>
+              <div className={styles.featureText}>{book?.type}</div>
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.featureIconWrapper}>
                 {/* icon */}
               </figure>
-              <div className={styles.featureText}></div>
+              <div className={styles.featureText}>{`${book?.keyIdeas} Key ideas`}</div>
             </div>
           </div>
           <hr />
           <div className={styles.buttons}>
             <button className={styles.button}>
               <figure className={styles.buttonIconWrapper}>{/* icon */}</figure>
-              <div className={styles.buttonText}></div>
+              <div className={styles.buttonText}>Read</div>
             </button>
             <button className={styles.button}>
               <figure className={styles.buttonIconWrapper}>{/* icon */}</figure>
-              <div className={styles.buttonText}></div>
+              <div className={styles.buttonText}>Listen</div>
             </button>
           </div>
           <div className={styles.bookmark}>
@@ -89,16 +89,19 @@ useEffect(() => {
           }>
             <div className={styles.header}>What's it about?</div>
             <div className={styles.tags}>
-                <div className={styles.tag}></div>
-                <div className={styles.tag}></div>
+            {
+              book?.tags.map((tag, index) => (
+                <div className={styles.tag} key={index}>{tag}</div>
+              ))
+            }
             </div>
-            <div className={styles.para}></div>
+            <div className={styles.para}>{book?.bookDescription}</div>
             <div className={styles.header}>About the author</div>
-            <div className={styles.para}></div>
+            <div className={styles.para}>{book?.authorDescription}</div>
           </div>
         </div>
         <figure className={styles.bookWrapper}>
-          <img className={styles.book} src="" alt="" />
+          <img className={styles.book} src={book?.imageLink} alt="" />
         </figure>
       </div>
     </div>
