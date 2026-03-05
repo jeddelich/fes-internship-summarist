@@ -72,7 +72,7 @@ export default function dashboard() {
         <h2 className={styles.sectionTitle}>Recommended For You</h2>
         <h4 className={styles.sectionSubtitle}>We think you'll like these</h4>
         {recommendedBooks && (
-          <div style={{ margin: "40px 0" }}>
+          <div style={{ margin: "20px 0" }}>
             <Carousel recommendedBooks={recommendedBooks} />
           </div>
         )}

@@ -1,5 +1,17 @@
-.book{
-    padding: 0 20px;
+.book {
+  padding: 0 8px;
+}
+
+.button{
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    padding: 40px 12px 0 12px;
+    height: 400px;
+}
+
+.button:hover{
+    background-color: #f1f6f4;
 }
 
 .metadata {
@@ -7,6 +19,12 @@
   flex-direction: column;
   margin: 12px 0;
   gap: 6px;
+}
+
+.title,
+.author,
+.subTitle{
+    text-align: left;
 }
 
 .title {
@@ -22,12 +40,42 @@
 }
 
 .author {
-    font-weight: 300;
-    opacity: 50%;
+  font-weight: 300;
+  opacity: 50%;
 }
 
 .subTitle {
   font-weight: 400;
   opacity: 75%;
   line-height: normal;
+}
+
+.bottomInfo {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+}
+
+.iconWrapper {
+  width: 16px;
+  height: 16px;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+}
+
+.star{
+    color: gold;
+}
+
+.clock{
+    opacity: 75%;
+}
+
+.bottomText {
+  font-size: 14px;
+  opacity: 50%;
 }
