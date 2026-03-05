@@ -8,6 +8,7 @@ import styles from "./page.module.css";
 import { FaCirclePlay } from "react-icons/fa6";
 import Carousel from "@/components/ui/Carousel";
 import { getUserSubscription } from "@/services/firebaseFirestore";
+import Link from "next/link";
 
 type Book = {
   id: string;
@@ -52,7 +53,7 @@ export default function dashboard() {
     <div className={styles.forYou}>
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Selected Just For You</h2>
-        <button className={styles.selectedBox}>
+        <Link href={`/book/${selectedBook?.id}`} className={styles.selectedBox}>
           <div className={styles.subTitle}>{selectedBook?.subTitle}</div>
           <div className={styles.bookWrapper}>
             <img src={selectedBook?.imageLink} className={styles.book} alt="" />
@@ -67,7 +68,7 @@ export default function dashboard() {
               <div className={styles.audioLength}>3 mins 23 secs</div>
             </div>
           </div>
-        </button>
+        </Link>
       </section>
 
       <section className={styles.section}>

@@ -1,0 +1,184 @@
+.title,
+.author,
+.subtitle,
+.featureText,
+.header,
+.para {
+  color: #032b41;
+}
+
+.bookPage {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bookInfo{
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  gap: 12px;
+}
+
+.bookWrapper{
+  width: 35%;
+}
+
+.book{
+  width: 100%;
+  height: auto;
+}
+
+.row{
+    display: flex;
+    width: 100%;
+}
+
+.separator{
+  opacity: 20%;
+}
+
+.title{
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.author{
+  font-weight: 600;
+}
+
+.subtitle{
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.featuredInfo{
+  display: flex;
+  width: 400px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+  gap: 12px 0;
+}
+
+.featureWrapper{
+  width: 50%;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: default;
+}
+
+.featureText{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.buttons{
+  display: flex;
+  margin: 16px 0;
+  gap: 16px;
+}
+
+.button{
+  background-color: #032b41;
+  padding: 8px 40px;
+  border-radius: 4px;
+  color: white;
+  display: flex;
+  align-items: center;
+  transition: all 200ms ease;
+  gap: 8px;
+}
+
+.button:hover{
+  opacity: 80%;
+}
+
+.button:active{
+  transform: translateY(2px);
+}
+
+.iconWrapper{
+  width: 20px;
+}
+
+.bookmarkIconWrapper{
+  width: 24px;
+}
+
+.buttonIconWrapper{
+  width: 20px;
+}
+
+.icon{
+  width: 100%;
+  height: auto;
+  transition: all 200ms ease;
+}
+
+.gray{
+  color: gray;
+}
+
+.featureWrapper:hover .gold{
+  color: gold;
+}
+
+.featureWrapper:hover .orange{
+  color: orange;
+}
+
+.bookmark{
+  color: #0365f2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.bookmark:hover{
+  color: #044298;
+}
+
+.bookmark:active{
+  transform: scale(0.98);
+}
+
+.bookmarkText{
+  font-weight: 500;
+}
+
+.description{
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  gap: 16px;
+}
+
+.header{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.tags{
+  display: flex;
+  gap: 16px;
+}
+
+.tag{
+  background-color: #f1f6f4;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: not-allowed;
+}
+
+.para{
+  opacity: 80%;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}

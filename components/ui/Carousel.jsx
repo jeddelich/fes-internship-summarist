@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import styles from "./Carousel.module.css";
 import { FaStar } from "react-icons/fa";
 import { CiClock2 } from "react-icons/ci";
+import Link from "next/link";
 
 function Carousel({ Books, subscription }) {
   const sliderRef = useRef(null);
@@ -55,7 +56,7 @@ function Carousel({ Books, subscription }) {
       <Slider ref={sliderRef} {...carouselSettings}>
         {Books?.map((book) => (
           <div key={book.id} className={styles.book}>
-            <button className={styles.button}>
+            <Link href={`/book/${book.id}`} className={styles.button}>
               {book.subscriptionRequired && !subscription && (
                 <div className={styles.pill}>Premium</div>
               )}
@@ -81,7 +82,7 @@ function Carousel({ Books, subscription }) {
                   <div className={styles.bottomText}>{book.averageRating}</div>
                 </div>
               </div>
-            </button>
+            </Link>
           </div>
         ))}
       </Slider>
