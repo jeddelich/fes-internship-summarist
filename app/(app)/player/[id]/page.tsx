@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import styles from "./page.module.css"
-import { useParams } from "next/navigation"
-import getBookById from "@/api/id-book"
+import { useEffect, useState } from "react";
+import styles from "./page.module.css";
+import { useParams } from "next/navigation";
+import getBookById from "@/api/id-book";
 
 type Book = {
   id: string;
@@ -25,27 +25,26 @@ type Book = {
 };
 
 export default function PlayerPage() {
-    
-    const [book, setBook] = useState<Book | null>(null)
+  const [book, setBook] = useState<Book | null>(null);
 
-    const { id } = useParams()
+  const { id } = useParams();
 
-    useEffect(() => {
-
+  useEffect(() => {
     async function fetchInfo() {
-        const fetchedBook = await getBookById(id);
-        setBook(fetchedBook);
-        console.log(fetchedBook)
+      const fetchedBook = await getBookById(id);
+      setBook(fetchedBook);
+      console.log(fetchedBook);
     }
-    fetchInfo()
+    fetchInfo();
+  }, []);
 
-    }, [])
-    
-    return (
-        <div className={styles.player}>
-            <h1 className={styles.title}>{book?.title}</h1>
-            <hr className={styles.separator}/>
-            <p className={styles.summary}>{book?.summary}</p>
-        </div>
-    )
+  return (
+    <div className={styles.player}>
+      <div className={styles.row}>
+        <h1 className={styles.title}>{book?.title}</h1>
+        <hr className={styles.separator} />
+        <p className={styles.summary}>{book?.summary}</p>
+      </div>
+    </div>
+  );
 }
