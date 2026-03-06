@@ -9,16 +9,18 @@ import getSearch from "@/api/search";
 function SearchBar() {
   const [search, setSearch] = useState("");
   const [active, setActive] = useState(false);
+  const [searchResults, setSearchResults] = useState(null);
   const timeoutRef = useRef(null);
 
   function handleSearch(e) {
     const value = e.target.value;
     clearTimeout(timeoutRef.current);
+    setSearchResults(null)
 
     if (value !== "") {
       timeoutRef.current = setTimeout(async () => {
         const result = await getSearch(value);
-        console.log(result);
+        setSearchResults(result);
       }, 1000);
     }
 
@@ -60,9 +62,13 @@ function SearchBar() {
       {active && (
         <div className={styles.searchResults}>
           <div className={styles.resultsWrapper}>
-            {[...Array(3)].map((skeleton) => {
-              return <div className={styles.searchSkeleton}></div>;
-            })}
+            {searchResults
+              ? searchResults.map((result) => {
+                  return <div className={styles.result}></div>;
+                })
+              : [...Array(3)].map((skeleton) => {
+                  return <div className={styles.searchSkeleton}></div>;
+                })}
           </div>
         </div>
       )}
