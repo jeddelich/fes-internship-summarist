@@ -172,3 +172,11 @@ input:focus {
     color: gray;
     font-size: 14px;
 }
+
+.searchFailed{
+    color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 352px;
+}

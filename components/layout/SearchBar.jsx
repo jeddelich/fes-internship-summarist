@@ -11,6 +11,7 @@ import Link from "next/link";
 function SearchBar() {
   const [search, setSearch] = useState("");
   const [active, setActive] = useState(false);
+  const [failedSearch, setFailedSearch] = useState(false);
   const [searchResults, setSearchResults] = useState(null);
   const timeoutRef = useRef(null);
 
@@ -18,13 +19,20 @@ function SearchBar() {
     const value = e.target.value;
     clearTimeout(timeoutRef.current);
     setSearchResults(null);
+    setFailedSearch(false);
 
     if (value !== "") {
       timeoutRef.current = setTimeout(async () => {
         const result = await getSearch(value);
-        setSearchResults(result);
-        console.log(result);
-      }, 1000);
+
+        if (result.length === 0) {
+          setFailedSearch(true);
+          setSearchResults([]);
+        } else {
+          setSearchResults(result);
+          console.log(result);
+        }
+      }, 500);
     }
 
     setSearch(value);
@@ -73,7 +81,12 @@ function SearchBar() {
             {searchResults
               ? searchResults.map((result) => {
                   return (
-                    <Link href={`/book/${result.id}`} onClick={handleClose} key={result.id} className={styles.result}>
+                    <Link
+                      href={`/book/${result.id}`}
+                      onClick={handleClose}
+                      key={result.id}
+                      className={styles.result}
+                    >
                       <figure className={styles.imageWrapper}>
                         <img
                           src={result.imageLink}
@@ -86,9 +99,7 @@ function SearchBar() {
                         <div className={styles.author}>{result.author}</div>
                         <div className={styles.timeWrapper}>
                           <figure className={styles.clockIconWrapper}>
-                            <FaRegClock
-                              className={styles.clockIcon}
-                            />
+                            <FaRegClock className={styles.clockIcon} />
                           </figure>
                           <div className={styles.time}>02:30</div>
                         </div>
@@ -101,6 +112,12 @@ function SearchBar() {
                     <div key={index} className={styles.searchSkeleton}></div>
                   );
                 })}
+            {failedSearch && (
+              <div className={styles.searchFailed}>
+                No books found matching your search. <br/> Please try again or
+                contact us for help!
+              </div>
+            )}
           </div>
         </div>
       )}

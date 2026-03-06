@@ -38,6 +38,7 @@
 
 .separator{
   opacity: 20%;
+  z-index: -20;
 }
 
 .title{
