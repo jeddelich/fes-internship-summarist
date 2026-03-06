@@ -6,6 +6,7 @@ import { IoMdSearch } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import getSearch from "@/api/search";
 import { FaRegClock } from "react-icons/fa";
+import Link from "next/link";
 
 function SearchBar() {
   const [search, setSearch] = useState("");
@@ -70,9 +71,9 @@ function SearchBar() {
             }
           >
             {searchResults
-              ? searchResults.map((result, index) => {
+              ? searchResults.map((result) => {
                   return (
-                    <button key={index} className={styles.result}>
+                    <Link href={`/book/${result.id}`} onClick={handleClose} key={result.id} className={styles.result}>
                       <figure className={styles.imageWrapper}>
                         <img
                           src={result.imageLink}
@@ -92,7 +93,7 @@ function SearchBar() {
                           <div className={styles.time}>02:30</div>
                         </div>
                       </div>
-                    </button>
+                    </Link>
                   );
                 })
               : [...Array(3)].map((skeleton, index) => {
