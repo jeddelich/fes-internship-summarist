@@ -58,4 +58,14 @@ input:focus{
     color: gray;
     width: 100%;
     height: 100%;
+    cursor: not-allowed;
+    transition: all 200ms ease;
+}
+
+.clickable:hover{
+    transform: scale(1.1);
+}
+
+.clickable:active{
+    transform: scale(0.9);
 }
