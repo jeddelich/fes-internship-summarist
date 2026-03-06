@@ -5,6 +5,7 @@ import styles from "./SearchBar.module.css";
 import { IoMdSearch } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import getSearch from "@/api/search";
+import { FaRegClock } from "react-icons/fa";
 
 function SearchBar() {
   const [search, setSearch] = useState("");
@@ -15,12 +16,13 @@ function SearchBar() {
   function handleSearch(e) {
     const value = e.target.value;
     clearTimeout(timeoutRef.current);
-    setSearchResults(null)
+    setSearchResults(null);
 
     if (value !== "") {
       timeoutRef.current = setTimeout(async () => {
         const result = await getSearch(value);
         setSearchResults(result);
+        console.log(result);
       }, 1000);
     }
 
@@ -61,13 +63,42 @@ function SearchBar() {
       </form>
       {active && (
         <div className={styles.searchResults}>
-          <div className={styles.resultsWrapper}>
+          <div
+            className={styles.resultsWrapper}
+            style={
+              searchResults?.length > 3 ? { paddingRight: "12px" } : undefined
+            }
+          >
             {searchResults
-              ? searchResults.map((result) => {
-                  return <div className={styles.result}></div>;
+              ? searchResults.map((result, index) => {
+                  return (
+                    <button key={index} className={styles.result}>
+                      <figure className={styles.imageWrapper}>
+                        <img
+                          src={result.imageLink}
+                          className={styles.image}
+                          alt=""
+                        />
+                      </figure>
+                      <div className={styles.resultInfo}>
+                        <div className={styles.title}>{result.title}</div>
+                        <div className={styles.author}>{result.author}</div>
+                        <div className={styles.timeWrapper}>
+                          <figure className={styles.clockIconWrapper}>
+                            <FaRegClock
+                              className={styles.clockIcon}
+                            />
+                          </figure>
+                          <div className={styles.time}>02:30</div>
+                        </div>
+                      </div>
+                    </button>
+                  );
                 })
-              : [...Array(3)].map((skeleton) => {
-                  return <div className={styles.searchSkeleton}></div>;
+              : [...Array(3)].map((skeleton, index) => {
+                  return (
+                    <div key={index} className={styles.searchSkeleton}></div>
+                  );
                 })}
           </div>
         </div>
