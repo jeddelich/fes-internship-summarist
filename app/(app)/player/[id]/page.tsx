@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import { useParams } from "next/navigation";
 import getBookById from "@/api/id-book";
+import AudioPlayer from "@/components/ui/AudioPlayer"
 
 type Book = {
   id: string;
@@ -45,6 +46,7 @@ export default function PlayerPage() {
         <hr className={styles.separator} />
         <p className={styles.summary}>{book?.summary}</p>
       </div>
+      <AudioPlayer img={book?.imageLink} title={book?.title} author={book?.author} />
     </div>
   );
 }
