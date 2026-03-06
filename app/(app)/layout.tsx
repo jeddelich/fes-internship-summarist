@@ -8,6 +8,7 @@ import ResetPasswordModal from "@/components/auth/ResetPasswordModal";
 import useAuthModal from "@/components/hooks/useAuthModal";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import SearchBar from "@/components/layout/SearchBar"
 
 export default function AppLayout({ children }: { children: ReactNode }) {
   
@@ -39,6 +40,7 @@ return (
         />
       )}
       <Sidebar openLogin={openLogin} />
+      <SearchBar />
       <main className="flex-1 ml-50! min-w-0">{children}</main>
     </div>
   );
