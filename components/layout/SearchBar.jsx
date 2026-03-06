@@ -1,23 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styles from "./SearchBar.module.css";
 import { IoMdSearch } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
+import getSearch from "@/api/search"
 
 function SearchBar() {
   const [search, setSearch] = useState("");
   const [showClose, setShowClose] = useState(false);
+  const timeoutRef = useRef(null)
 
   function handleSearch(e) {
     const value = e.target.value
+    clearTimeout(timeoutRef.current)
     
-    setSearch(value);
-    if (value === "" ) {
-      setShowClose(false);
-    } else if (value !== "" && !showClose) {
-      setShowClose(true);
+    if (value !== "") {
+        timeoutRef.current = setTimeout(async () => {
+                const result = await getSearch(value)
+                console.log(result)
+        }, 1000)
     }
+        
+    setSearch(value);
+    setShowClose(value !== "")
   }
 
   function handleClose() {
