@@ -46,7 +46,7 @@ export default function PlayerPage() {
         <hr className={styles.separator} />
         <p className={styles.summary}>{book?.summary}</p>
       </div>
-      <AudioPlayer img={book?.imageLink} title={book?.title} author={book?.author} />
+      <AudioPlayer img={book?.imageLink} title={book?.title} author={book?.author} audio={book?.audioLink} />
     </div>
   );
 }

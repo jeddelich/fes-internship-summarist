@@ -1,6 +1,6 @@
 import styles from "./AudioPlayer.module.css";
 
-function AudioPlayer({ img, title, author }) {
+function AudioPlayer({ img, title, author, audio }) {
   return (
     <div className={styles.audioPlayer}>
       <div className={styles.trackInfo}>
@@ -11,6 +11,9 @@ function AudioPlayer({ img, title, author }) {
           <div className={styles.title}>{title}</div>
           <div className={styles.author}>{author}</div>
         </div>
+      </div>
+      <div className={styles.audioWrapper}>
+      <audio className={styles.audioBar} src={audio} controls></audio>
       </div>
     </div>
   );

@@ -7,26 +7,29 @@
     background-color: #032b41;
     padding-left: 240px;
     padding-right: 40px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .trackInfo{
     height: 80px;
     width: 320px;
     display: flex;
+    align-items: center;
     gap: 16px;
 }
 
 .imgWrapper{
-    height: 100%;
-    width: 80px;
+    height: 80%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .img{
-    height: auto;
-    width: 100%;
+    height: 100%;
+    width: auto;
 }
 
 .text{
@@ -46,4 +49,16 @@
 .author{
     color: lightgray;
     font-size: 12px;
+}
+
+.audioWrapper{
+    width: 400px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.audioBar{
+    width: 100%;
+    height: 50%;
 }
