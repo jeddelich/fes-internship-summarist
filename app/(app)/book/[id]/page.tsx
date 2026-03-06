@@ -113,13 +113,13 @@ export default function BookPage() {
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>
-                <FaRegClock className={`${styles.icon} + " " + ${styles.gray}`} />
+                <FaRegClock className={`${styles.icon} + " " + ${styles}`} />
               </figure>
               <div className={styles.featureText}>02:30</div>
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>
-                <FaMicrophoneLines className={`${styles.icon} + " " + ${styles.gray}`} />
+                <FaMicrophoneLines className={`${styles.icon} + " " + ${styles}`} />
               </figure>
               <div className={styles.featureText}>{book?.type}</div>
             </div>
