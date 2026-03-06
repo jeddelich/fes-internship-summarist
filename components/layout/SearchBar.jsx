@@ -4,31 +4,31 @@ import { useState, useRef } from "react";
 import styles from "./SearchBar.module.css";
 import { IoMdSearch } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
-import getSearch from "@/api/search"
+import getSearch from "@/api/search";
 
 function SearchBar() {
   const [search, setSearch] = useState("");
-  const [showClose, setShowClose] = useState(false);
-  const timeoutRef = useRef(null)
+  const [active, setActive] = useState(false);
+  const timeoutRef = useRef(null);
 
   function handleSearch(e) {
-    const value = e.target.value
-    clearTimeout(timeoutRef.current)
-    
+    const value = e.target.value;
+    clearTimeout(timeoutRef.current);
+
     if (value !== "") {
-        timeoutRef.current = setTimeout(async () => {
-                const result = await getSearch(value)
-                console.log(result)
-        }, 1000)
+      timeoutRef.current = setTimeout(async () => {
+        const result = await getSearch(value);
+        console.log(result);
+      }, 1000);
     }
-        
+
     setSearch(value);
-    setShowClose(value !== "")
+    setActive(value !== "");
   }
 
   function handleClose() {
-    setSearch("")
-    setShowClose(false)
+    setSearch("");
+    setActive(false);
   }
 
   return (
@@ -44,15 +44,28 @@ function SearchBar() {
           />
           <div className={styles.button}>
             <figure className={styles.iconWrapper}>
-              {!showClose ? (
+              {!active ? (
                 <IoMdSearch className={styles.icon} />
               ) : (
-                <IoClose className={`${styles.icon} + " " + ${styles.clickable}`} style={{cursor: "pointer"}} onClick={handleClose} />
+                <IoClose
+                  className={`${styles.icon} + " " + ${styles.clickable}`}
+                  style={{ cursor: "pointer" }}
+                  onClick={handleClose}
+                />
               )}
             </figure>
           </div>
         </div>
       </form>
+      {active && (
+        <div className={styles.searchResults}>
+          <div className={styles.resultsWrapper}>
+            {[...Array(3)].map((skeleton) => {
+              return <div className={styles.searchSkeleton}></div>;
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
