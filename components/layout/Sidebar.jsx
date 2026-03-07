@@ -7,20 +7,25 @@ import { IoHome, IoSearch, IoSettingsOutline } from "react-icons/io5";
 import { FaHighlighter, FaQuestionCircle } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 import { BsBookshelf } from "react-icons/bs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext"
 
 function Sidebar({ openLogin }) {
 
   const [active, setActive] = useState("For you")
+  const [visible, setVisible] = useState(false)
   const { user } = useAuth()
 
   function select(btn) {
     setActive(btn)
   }
+
+  useEffect(() => {
+    setVisible(true)
+  }, [])
   
   return (
-    <nav className={styles.sidebar}>
+    <nav className={`${styles.sidebar} ${visible && styles.slideInFromLeft}`}>
       <figure className={styles.logoWrapper}>
         <img src="/logos/summarist__logo.png" alt="Summarist Logo" className={styles.logo} />
       </figure>

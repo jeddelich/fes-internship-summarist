@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import SearchBar from "@/components/layout/SearchBar";
 import { AudioProvider } from "@/context/AudioContext";
 import AudioManager from "@/components/ui/AudioManager";
+import styles from "./layout.module.css"
 
 export default function AppLayout({ children }: { children: ReactNode }) {
   const { activeModal, closeModal, openSignUp, openLogin, openResetPassword } =
@@ -44,7 +45,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
         <AudioManager />
         <Sidebar openLogin={openLogin} />
         <SearchBar />
-        <main className="flex-1 ml-50! min-w-0">{children}</main>
+        <main className={styles.main}>{children}</main>
       </AudioProvider>
     </div>
   );
