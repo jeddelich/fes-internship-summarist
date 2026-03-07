@@ -9,6 +9,9 @@ import { FaCirclePlay } from "react-icons/fa6";
 import Carousel from "@/components/ui/Carousel";
 import { getUserSubscription } from "@/services/firebaseFirestore";
 import Link from "next/link";
+import { useAudio } from "@/context/AudioContext";
+import { formatTime } from "@/utils/formatTime";
+import BookDuration from "@/components/ui/BookDuration";
 
 type Book = {
   id: string;
@@ -31,6 +34,7 @@ type Book = {
 
 export default function dashboard() {
   const { user, loading } = useAuth();
+  const { duration } = useAudio()
   const [subscription, setSubscription] = useState<any>(null);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [recommendedBooks, setRecommendedBooks] = useState<Book[] | null>(null);
@@ -65,7 +69,7 @@ export default function dashboard() {
               <div className={styles.iconWrapper}>
                 <FaCirclePlay className={styles.icon} />
               </div>
-              <div className={styles.audioLength}>3 mins 23 secs</div>
+              <div className={styles.audioLength}>Listen (< BookDuration audioUrl={selectedBook?.audioLink} />)</div>
             </div>
           </div>
         </Link>
@@ -86,7 +90,7 @@ export default function dashboard() {
         <h4 className={styles.sectionSubtitle}>Browse those books</h4>
         {suggestedBooks && (
           <div style={{ margin: "16px 0" }}>
-            <Carousel Books={suggestedBooks} subscription={subscription} />
+            <Carousel Books={suggestedBooks} subscription={subscription}/>
           </div>
         )}
       </section>

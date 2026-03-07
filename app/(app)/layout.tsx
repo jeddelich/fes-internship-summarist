@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Sidebar from "@/components/layout/Sidebar";
 import { ReactNode } from "react";
@@ -8,14 +8,15 @@ import ResetPasswordModal from "@/components/auth/ResetPasswordModal";
 import useAuthModal from "@/components/hooks/useAuthModal";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import SearchBar from "@/components/layout/SearchBar"
+import SearchBar from "@/components/layout/SearchBar";
+import { AudioProvider } from "@/context/AudioContext";
+import AudioManager from "@/components/ui/AudioManager";
 
 export default function AppLayout({ children }: { children: ReactNode }) {
-  
-   const {activeModal, closeModal, openSignUp, openLogin, openResetPassword } = useAuthModal()
+  const { activeModal, closeModal, openSignUp, openLogin, openResetPassword } =
+    useAuthModal();
 
-  
-return (
+  return (
     <div className="flex h-screen">
       {activeModal === "login" && (
         <LoginModal
@@ -39,9 +40,12 @@ return (
           activeModal={activeModal}
         />
       )}
-      <Sidebar openLogin={openLogin} />
-      <SearchBar />
-      <main className="flex-1 ml-50! min-w-0">{children}</main>
+      <AudioProvider>
+        <AudioManager />
+        <Sidebar openLogin={openLogin} />
+        <SearchBar />
+        <main className="flex-1 ml-50! min-w-0">{children}</main>
+      </AudioProvider>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import styles from "./Carousel.module.css";
 import { FaStar } from "react-icons/fa";
 import { CiClock2 } from "react-icons/ci";
 import Link from "next/link";
+import BookDuration from "./BookDuration";
 
 function Carousel({ Books, subscription }) {
   const sliderRef = useRef(null);
@@ -73,7 +74,7 @@ function Carousel({ Books, subscription }) {
                       className={`${styles.icon}` + " " + `${styles.clock}`}
                     />
                   </figure>
-                  <div className={styles.bottomText}>02:30</div>
+                  <div className={styles.bottomText}><BookDuration audioUrl={book.audioLink} /></div>
                   <figure className={styles.iconWrapper}>
                     <FaStar
                       className={`${styles.icon}` + " " + `${styles.star}`}

@@ -14,6 +14,7 @@ import LoginModal from "@/components/auth/LoginModal";
 import SignUpModal from "@/components/auth/SignUpModal";
 import ResetPasswordModal from "@/components/auth/ResetPasswordModal";
 import { getUserSubscription } from "@/services/firebaseFirestore";
+import BookDuration from "@/components/ui/BookDuration";
 
 type Book = {
   id: string;
@@ -105,7 +106,7 @@ export default function BookPage() {
           <div className={styles.featuredInfo}>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>
-                <FaStar className={`${styles.icon} + " " + ${styles.gold} + " " + ${styles.gray}`} />
+                <FaStar className={`${styles.icon} + " " + ${styles.gold}`} />
               </figure>
               <div
                 className={styles.featureText}
@@ -113,20 +114,20 @@ export default function BookPage() {
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>
-                <FaRegClock className={`${styles.icon} + " " + ${styles.gray}`} />
+                <FaRegClock className={`${styles.icon} + " " + ${styles}`} />
               </figure>
-              <div className={styles.featureText}>02:30</div>
+              <div className={styles.featureText}><BookDuration audioUrl={book?.audioLink} /></div>
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>
-                <FaMicrophoneLines className={`${styles.icon} + " " + ${styles.gray}`} />
+                <FaMicrophoneLines className={`${styles.icon} + " " + ${styles}`} />
               </figure>
               <div className={styles.featureText}>{book?.type}</div>
             </div>
             <div className={styles.featureWrapper}>
               <figure className={styles.iconWrapper}>
                 <FaRegLightbulb
-                  className={`${styles.icon} + " " + ${styles.orange} + " " + ${styles.gray}`}
+                  className={`${styles.icon} + " " + ${styles.orange}`}
                 />
               </figure>
               <div
