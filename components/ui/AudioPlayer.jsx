@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./AudioPlayer.module.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaCirclePause, FaCirclePlay } from "react-icons/fa6";
 import { RiForward10Fill, RiReplay10Fill } from "react-icons/ri";
 
@@ -57,6 +57,23 @@ function AudioPlayer({ img, title, author, audio }) {
     audio.currentTime = newTime;
     setCurrentTime(newTime);
   }
+
+  useEffect(() => {
+    function handleKeyDown(e) {
+        if (e.code === "ArrowRight") {
+            forwards()
+        }
+
+        if (e.code === "ArrowLeft") {
+            backwards()
+        }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => {
+        window.addEventListener("keydown", handleKeyDown)
+    }
+  }, [])
 
   return (
     <div className={styles.audioPlayer}>
