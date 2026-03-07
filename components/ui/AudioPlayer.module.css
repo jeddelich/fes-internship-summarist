@@ -52,10 +52,11 @@
 }
 
 .audioWrapper{
-    width: 400px;
+    width: 320px;
     height: 100%;
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 
 .audioBar{
@@ -83,4 +84,13 @@
     display: flex;
     align-items: center;
     gap: 16px;
+}
+
+.progress{
+    width: 100%;
+    cursor: pointer;
+}
+
+.time{
+    color: white;
 }
