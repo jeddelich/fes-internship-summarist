@@ -8,6 +8,7 @@ import getSearch from "@/api/search";
 import { FaRegClock } from "react-icons/fa";
 import Link from "next/link";
 import BookDuration from "../ui/BookDuration";
+import { SlMenu } from "react-icons/sl";
 
 function SearchBar() {
   const [search, setSearch] = useState("");
@@ -47,6 +48,9 @@ function SearchBar() {
 
   return (
     <div className={styles.searchBar}>
+      <figure className={`${styles.menuWrapper} ${styles.visible}`}>
+        <SlMenu className={styles.icon}></SlMenu>
+      </figure>
       <form action="">
         <div className={styles.wrapper}>
           <input
