@@ -71,7 +71,7 @@ function AudioPlayer({ img, title, author, audio }) {
 
     window.addEventListener("keydown", handleKeyDown)
     return () => {
-        window.addEventListener("keydown", handleKeyDown)
+        window.removeEventListener("keydown", handleKeyDown)
     }
   }, [])
 

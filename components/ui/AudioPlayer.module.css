@@ -9,6 +9,21 @@
     padding-right: 40px;
     display: flex;
     justify-content: space-between;
+    transform: translateY(80px);
+    opacity: 0;
+    animation: slideUp 1s 1s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(80px);
+        opacity: 50%;
+    } 
+    
+    to {
+        transform: translateY(0);
+        opacity: 100%;
+    }
 }
 
 .trackInfo{
