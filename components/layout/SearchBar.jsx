@@ -7,6 +7,7 @@ import { IoClose } from "react-icons/io5";
 import getSearch from "@/api/search";
 import { FaRegClock } from "react-icons/fa";
 import Link from "next/link";
+import BookDuration from "../ui/BookDuration";
 
 function SearchBar() {
   const [search, setSearch] = useState("");
@@ -101,7 +102,7 @@ function SearchBar() {
                           <figure className={styles.clockIconWrapper}>
                             <FaRegClock className={styles.clockIcon} />
                           </figure>
-                          <div className={styles.time}>02:30</div>
+                          <div className={styles.time}><BookDuration audioUrl={result.audioLink} /></div>
                         </div>
                       </div>
                     </Link>

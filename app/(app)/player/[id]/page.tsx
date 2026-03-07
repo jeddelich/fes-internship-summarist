@@ -5,6 +5,7 @@ import styles from "./page.module.css";
 import { useParams } from "next/navigation";
 import getBookById from "@/api/id-book";
 import AudioPlayer from "@/components/ui/AudioPlayer"
+import { useAudio } from "@/context/AudioContext";
 
 type Book = {
   id: string;
@@ -27,17 +28,21 @@ type Book = {
 
 export default function PlayerPage() {
   const [book, setBook] = useState<Book | null>(null);
+  const { setAudioUrl } = useAudio()
 
   const { id } = useParams();
 
   useEffect(() => {
+      if (book?.audioLink) {
+    setAudioUrl(book.audioLink);
+  }
     async function fetchInfo() {
       const fetchedBook = await getBookById(id);
       setBook(fetchedBook);
       console.log(fetchedBook);
     }
     fetchInfo();
-  }, []);
+  }, [book]);
 
   return (
     <div className={styles.player}>

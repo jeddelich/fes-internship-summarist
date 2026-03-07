@@ -4,12 +4,14 @@ import styles from "./AudioPlayer.module.css";
 import { useEffect, useRef, useState } from "react";
 import { FaCirclePause, FaCirclePlay } from "react-icons/fa6";
 import { RiForward10Fill, RiReplay10Fill } from "react-icons/ri";
+import { useAudio } from "@/context/AudioContext";
+import { formatTime } from "@/utils/formatTime";
 
 function AudioPlayer({ img, title, author, audio }) {
   const audioRef = useRef(null);
+  const { duration, setDuration } = useAudio()
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
   const [isSeeking, setIsSeeking] = useState(false);
 
   const progress = duration ? (duration - currentTime) * 100 : 0;
@@ -36,17 +38,6 @@ function AudioPlayer({ img, title, author, audio }) {
     const audio = audioRef.current;
     if (!audio) return;
     audio.currentTime += 10;
-  }
-
-  function formatTime(time) {
-    if (!time) return "0:00";
-
-    const minutes = Math.floor(time / 60);
-    let seconds = Math.floor(time % 60)
-      .toString()
-      .padStart(2, "0");
-
-    return `${minutes}:${seconds}`;
   }
 
   function handleSeek(e) {
