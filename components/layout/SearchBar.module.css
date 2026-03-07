@@ -10,12 +10,13 @@
 .wrapper {
   position: absolute;
   top: 50%;
-  right: 40px;
+  right: 20px;
   transform: translateY(-50%);
   width: 340px;
   height: 40px;
   border: 2px solid lightgray;
   border-radius: 8px;
+  transition: all 1s ease 1s;
 }
 
 .input {
@@ -179,4 +180,11 @@ input:focus {
     justify-content: center;
     align-items: center;
     height: 352px;
+}
+
+@media (max-width: 768px) {
+  .wrapper{
+    width: min(300px, calc(100% - 100px));
+    right: 80px;
+  }
 }
