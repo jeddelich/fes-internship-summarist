@@ -10,7 +10,7 @@ function AudioPlayer({ img, title, author, audio }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [isSeeking, setIsSeeking] = useState(false)
+  const [isSeeking, setIsSeeking] = useState(false);
 
   const progress = duration ? (duration - currentTime) * 100 : 0;
 
@@ -38,14 +38,15 @@ function AudioPlayer({ img, title, author, audio }) {
     audio.currentTime += 10;
   }
 
-
   function formatTime(time) {
-    if (!time) return "0:00"
-    
-    const minutes = Math.floor(time / 60)
-    let seconds = Math.floor(time % 60).toString().padStart(2, "0")
+    if (!time) return "0:00";
 
-    return `${minutes}:${seconds}`
+    const minutes = Math.floor(time / 60);
+    let seconds = Math.floor(time % 60)
+      .toString()
+      .padStart(2, "0");
+
+    return `${minutes}:${seconds}`;
   }
 
   function handleSeek(e) {
@@ -53,8 +54,8 @@ function AudioPlayer({ img, title, author, audio }) {
     if (!audio) return;
 
     const newTime = e.target.value;
-    audio.currentTime = newTime
-    setCurrentTime(newTime)
+    audio.currentTime = newTime;
+    setCurrentTime(newTime);
   }
 
   return (
@@ -88,8 +89,13 @@ function AudioPlayer({ img, title, author, audio }) {
           className={styles.audioBar}
           src={audio}
           ref={audioRef}
-          onTimeUpdate={() => {if (!isSeeking) {setCurrentTime(audioRef.current.currentTime)}}}
+          onTimeUpdate={() => {
+            if (!isSeeking) {
+              setCurrentTime(audioRef.current.currentTime);
+            }
+          }}
           onLoadedMetadata={() => setDuration(audioRef.current.duration)}
+          onEnded={() => {setIsPlaying(false); setCurrentTime(0)}}
         ></audio>
         <div className={styles.time}>{formatTime(currentTime)}</div>
         <input
