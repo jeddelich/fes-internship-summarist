@@ -1,6 +1,38 @@
+"use client";
+
 import styles from "./AudioPlayer.module.css";
+import { useRef, useState } from "react";
+import { FaCirclePause, FaCirclePlay } from "react-icons/fa6";
+import { RiForward10Fill, RiReplay10Fill } from "react-icons/ri";
 
 function AudioPlayer({ img, title, author, audio }) {
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  function toggleButton() {
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+
+    setIsPlaying(!isPlaying);
+  }
+
+  function backwards() {
+    const audio = audioRef.current
+    if (!audio) return
+    audio.currentTime -= 10;
+  }
+
+  function forwards() {
+    const audio = audioRef.current
+    if (!audio) return
+    audio.currentTime += 10;
+  }
+
   return (
     <div className={styles.audioPlayer}>
       <div className={styles.trackInfo}>
@@ -13,7 +45,22 @@ function AudioPlayer({ img, title, author, audio }) {
         </div>
       </div>
       <div className={styles.audioWrapper}>
-      <audio className={styles.audioBar} src={audio} controls></audio>
+        <div className={styles.controls}>
+          <button className={styles.buttonSmall} onClick={backwards}>
+            <RiReplay10Fill className={styles.icon} />
+          </button>
+          <button className={styles.buttonBig} onClick={toggleButton}>
+            {isPlaying ? (
+              <FaCirclePause className={styles.icon} />
+            ) : (
+              <FaCirclePlay className={styles.icon} />
+            )}
+          </button>
+          <button className={styles.buttonSmall} onClick={forwards}>
+            <RiForward10Fill className={styles.icon} />
+          </button>
+        </div>
+        <audio className={styles.audioBar} src={audio} ref={audioRef}></audio>
       </div>
     </div>
   );
