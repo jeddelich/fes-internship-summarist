@@ -15,7 +15,10 @@ function SidebarBtn({
   const router = useRouter();
 
   function action(e) {
-    setToggleMenu()
+    if (setToggleMenu) {
+      setToggleMenu()
+    }
+    
     if (LogInOrOut) {
       LogInOrOut(e);
     } else if (redirect) {
