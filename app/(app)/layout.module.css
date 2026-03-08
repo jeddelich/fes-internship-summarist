@@ -10,3 +10,10 @@ transition: all 1s ease;
     margin-left: 0;
  } 
 }
+
+.background{
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.75);
+  z-index: 1;
+}

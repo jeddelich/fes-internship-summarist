@@ -10,33 +10,28 @@ import { BsBookshelf } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext"
 
-function Sidebar({ openLogin }) {
+function Sidebar({ openLogin, visible, toggleMenu, setToggleMenu }) {
 
   const [active, setActive] = useState("For you")
-  const [visible, setVisible] = useState(false)
   const { user } = useAuth()
 
   function select(btn) {
     setActive(btn)
   }
-
-  useEffect(() => {
-    setVisible(true)
-  }, [])
   
   return (
-    <nav className={`${styles.sidebar} ${visible && styles.slideInFromLeft}`}>
+    <nav className={`${styles.sidebar} ${visible && styles.slideInFromLeft} ${toggleMenu && styles.menu}`}>
       <figure className={styles.logoWrapper}>
         <img src="/logos/summarist__logo.png" alt="Summarist Logo" className={styles.logo} />
       </figure>
       <ul className={styles.sidebar__list}>
-        <SidebarBtn Icon={IoHome} text="For you" redirect="/for-you" select={select} active={active} />
-        <SidebarBtn Icon={BsBookshelf} text="My Library" redirect="/library" select={select} active={active} />
-        <SidebarBtn Icon={FaHighlighter} disabled={{cursor: "not-allowed"}} text="Highlights" select={select} active={active} />
-        <SidebarBtn Icon={IoSearch} disabled={{cursor: "not-allowed"}} text="Search" select={select} active={active} />
-        <SidebarBtn Icon={IoSettingsOutline} text="Settings" redirect="/settings" select={select} active={active} />
-        <SidebarBtn Icon={FaQuestionCircle} disabled={{cursor: "not-allowed"}} text="Help & Support" select={select} active={active} />
-        <SidebarBtn Icon={MdLogout} text={user ? "Logout" : "Login"} LogInOrOut={ user ? LogOut : openLogin} />
+        <SidebarBtn Icon={IoHome} text="For you" redirect="/for-you" select={select} active={active} setToggleMenu={setToggleMenu} />
+        <SidebarBtn Icon={BsBookshelf} text="My Library" redirect="/library" select={select} active={active} setToggleMenu={setToggleMenu} />
+        <SidebarBtn Icon={FaHighlighter} disabled={{cursor: "not-allowed"}} text="Highlights" select={select} active={active} setToggleMenu={setToggleMenu} />
+        <SidebarBtn Icon={IoSearch} disabled={{cursor: "not-allowed"}} text="Search" select={select} active={active} setToggleMenu={setToggleMenu} />
+        <SidebarBtn Icon={IoSettingsOutline} text="Settings" redirect="/settings" select={select} active={active} setToggleMenu={setToggleMenu} />
+        <SidebarBtn Icon={FaQuestionCircle} disabled={{cursor: "not-allowed"}} text="Help & Support" select={select} active={active} setToggleMenu={setToggleMenu} />
+        <SidebarBtn Icon={MdLogout} text={user ? "Logout" : "Login"} LogInOrOut={ user ? LogOut : openLogin} setToggleMenu={setToggleMenu} />
       </ul>
     </nav>
   );
