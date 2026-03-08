@@ -84,7 +84,7 @@
 .benefitsList {
   position: relative;
   display: flex;
-  gap: 64px;
+  gap: clamp(24px, 4vw, 56px)
 }
 
 .icon {
@@ -155,6 +155,9 @@
     height: 75vh;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  }
+  .benefitsList{
+    flex-direction: column;
   }
 }
 
