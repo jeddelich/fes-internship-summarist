@@ -19,8 +19,8 @@ type FirestoreUser = {
 };
 
 const PLAN_NAMES: Record<string, string> = {
-  price_1T5hV8FfrSO4dTKFreZeB4wN: "Premium",
-  price_1T5hUdFfrSO4dTKF6bzFeVf5: "Premium-Plus",
+  price_1T5hV8FfrSO4dTKFreZeB4wN: "Premium (Monthly)",
+  price_1T5hUdFfrSO4dTKF6bzFeVf5: "Premium Plus (Yearly)",
 };
 
 function Settings() {
@@ -47,8 +47,8 @@ function Settings() {
 
 const planName =
   subscription?.price?.id
-    ? PLAN_NAMES[subscription.price.id] ?? "Basic"
-    : "Basic";
+    ? PLAN_NAMES[subscription.price.id] ?? "Standard (Free)"
+    : "Standard (Free)";
 
   return (
     <>
@@ -81,11 +81,11 @@ const planName =
             {user ? (
               <>
                 <SettingsSection
-                  subtitle="Your Subscription Plan"
+                  subtitle="Membership:"
                   content={planName}
                 />
                 <SettingsSection
-                  subtitle="Email"
+                  subtitle="Email Account:"
                   content={
                     user.email === "guest@gmail.com"
                       ? "summaristguest@gmail.com"
