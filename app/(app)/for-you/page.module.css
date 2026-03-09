@@ -103,3 +103,32 @@
 .sectionSubtitle{
     font-weight: 300;
 }
+
+@media (max-width: 522px) {
+  .selectedBox{
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 20px 0;
+  }
+  .bookAudio{
+    display: none;
+  }
+  .bookMetadata{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin: 0;
+  }
+  .subTitle{
+    margin-left: 24px;
+    font-size: 14px;
+    height: fit-content;
+  }
+  .bookWrapper{
+    width: 80px;
+  }
+}
