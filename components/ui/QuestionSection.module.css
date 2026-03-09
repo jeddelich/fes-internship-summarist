@@ -6,8 +6,10 @@
 }
 
 .question{
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
+    text-align: left;
+    padding-right: 20px;
 }
 
 .answer{
@@ -19,7 +21,7 @@
 }
 
 .answerVisible{
-    max-height: 80px;
+    max-height: 280px;
 }
 
 .questionSeparator{
@@ -34,6 +36,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .arrow{
@@ -44,4 +47,13 @@
 
 .arrowUp{
     transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+    .question{
+        font-size: 16px;
+    }   
+    .answer{
+        font-size: 14px;
+    }
 }
