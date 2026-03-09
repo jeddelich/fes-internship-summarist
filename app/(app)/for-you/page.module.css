@@ -55,14 +55,6 @@
   text-align: left;
 }
 
-.bookWrapper {
-  width: 25%;
-}
-
-.book {
-  width: 100%;
-}
-
 .bookMetadata {
   display: flex;
   flex-direction: column;
@@ -104,6 +96,26 @@
     font-weight: 300;
 }
 
+/* SKELETON */
+
+.selectedBookSkeleton {
+  width: 100%;
+  max-width: 640px;
+  background-color: lightgray;
+  height: 200px;
+  padding: 24px;
+  border-radius: 4px;
+  margin: 8px 0 16px 0;
+}
+
+.bookWrapperSkeleton {
+  width: 25%;
+  height: 120px;
+  background-color: lightgray;
+}
+
+/* RESPONSIVENESS */
+
 @media (max-width: 522px) {
   .selectedBox{
     flex-wrap: wrap;
@@ -124,11 +136,6 @@
     margin: 0;
   }
   .subTitle{
-    margin-left: 24px;
-    font-size: 14px;
-    height: fit-content;
-  }
-  .bookWrapper{
-    width: 80px;
+    display: none;
   }
 }
