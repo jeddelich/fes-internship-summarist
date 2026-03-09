@@ -10,7 +10,7 @@ import { BsBookshelf } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext"
 
-function Sidebar({ openLogin, visible, toggleMenu, setToggleMenu }) {
+function Sidebar({ openLogin, toggleMenu, setToggleMenu }) {
 
   const [active, setActive] = useState("For you")
   const { user } = useAuth()
@@ -20,7 +20,7 @@ function Sidebar({ openLogin, visible, toggleMenu, setToggleMenu }) {
   }
   
   return (
-    <nav className={`${styles.sidebar} ${visible && styles.slideInFromLeft} ${toggleMenu && styles.menu}`}>
+    <nav className={`${styles.sidebar} ${styles.slideInFromLeft} ${toggleMenu && styles.menu}`}>
       <figure className={styles.logoWrapper}>
         <img src="/logos/summarist__logo.png" alt="Summarist Logo" className={styles.logo} />
       </figure>
