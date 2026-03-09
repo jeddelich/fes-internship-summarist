@@ -8,6 +8,7 @@
     color: white;
     position: relative;
     transition: all 200ms ease;
+    z-index: -1;
 }
 
 .iconWrapper {

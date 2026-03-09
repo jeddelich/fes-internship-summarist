@@ -98,6 +98,7 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: width 500ms ease;
 }
 
 .resultsWrapper {
@@ -207,5 +208,22 @@ input:focus {
   .visible {
     opacity: 100%;
     transition: all 500ms ease 2s;
+  }
+  .searchResults{
+    width: auto;
+    right: 0;
+    left: 0;
+  }
+  .result{
+    justify-content: flex-start;
+  }
+  .resultInfo{
+    padding-left: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeWrapper{
+    display: none;
   }
 }
