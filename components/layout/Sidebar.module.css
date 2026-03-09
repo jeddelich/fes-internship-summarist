@@ -1,23 +1,20 @@
 .sidebar {
     display: flex;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     width: 200px;
     background-color: #f7faf9;
     padding: 20px 8px;
+    transform: translateX(-100%);
     border-right: 2px solid #e2e8f0;
-    animation: slideInFromLeft 1s ease;
+    transition: all 1s ease;
 }
 
-@keyframes slideInFromLeft {
-    from {
-        transform: translateX(-200px)
-    } to {
-        transform: translateX(0);
-    }
+.slideInFromLeft{
+    transform: translateX(0);    
 }
 
 .sidebar__list {
@@ -40,3 +37,15 @@
     height: 100%;
 }
 
+/* RESPONSIVENESS */
+
+@media (max-width: 768px) {
+ .slideInFromLeft{
+    transform: translateX(-100%);    
+}
+
+.menu{
+    transform: translateX(0);   
+}
+
+}

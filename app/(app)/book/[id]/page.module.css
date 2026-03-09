@@ -10,7 +10,7 @@
 .bookPage {
   width: 100%;
   padding: 20px 24px;
-  margin: 80px 0;
+  margin: 80px 0 40px 0;
   display: flex;
   flex-direction: column;
 }
@@ -23,7 +23,8 @@
 }
 
 .bookWrapper{
-  width: 35%;
+  width: 300px;
+  margin-left: 20px;
 }
 
 .book{
@@ -183,4 +184,53 @@
   opacity: 80%;
   line-height: 1.75;
   margin-bottom: 20px;
+}
+
+@media (max-width: 964px) {
+  .row{
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 40px;
+  }
+  .bookInfo{
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .row {
+    text-align: center;
+  }
+  .title{
+    font-size: 24px;
+  }
+  .bookWrapper{
+    padding: 0 20px;
+    margin-left: 0;
+  }
+  .featuredInfo{
+    width: 100%;
+  }
+  .featureWrapper{
+    justify-content: center;
+    width: 100%;
+  }
+  .buttons{
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .bookmark{
+    width: 100%;
+    justify-content: center;
+  }
+  .tags{
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .tag{
+    font-size: 14px;
+  }
+  .bookPage{
+    margin-bottom: 20px;
+  }
 }

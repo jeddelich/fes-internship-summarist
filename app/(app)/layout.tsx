@@ -1,7 +1,7 @@
 "use client";
 
 import Sidebar from "@/components/layout/Sidebar";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
 import SignUpModal from "@/components/auth/SignUpModal";
 import ResetPasswordModal from "@/components/auth/ResetPasswordModal";
@@ -11,13 +11,20 @@ import "slick-carousel/slick/slick-theme.css";
 import SearchBar from "@/components/layout/SearchBar";
 import { AudioProvider } from "@/context/AudioContext";
 import AudioManager from "@/components/ui/AudioManager";
+import styles from "./layout.module.css"
 
 export default function AppLayout({ children }: { children: ReactNode }) {
   const { activeModal, closeModal, openSignUp, openLogin, openResetPassword } =
     useAuthModal();
+  const [visible, setVisible] = useState(false)
+  const [toggleMenu, setToggleMenu] = useState(false)
+
+  useEffect(() => {
+    setVisible(true)
+  }, [])
 
   return (
-    <div className="flex h-screen">
+    <div className="flex min-h-screen">
       {activeModal === "login" && (
         <LoginModal
           closeModal={closeModal}
@@ -42,10 +49,11 @@ export default function AppLayout({ children }: { children: ReactNode }) {
       )}
       <AudioProvider>
         <AudioManager />
-        <Sidebar openLogin={openLogin} />
-        <SearchBar />
-        <main className="flex-1 ml-50! min-w-0">{children}</main>
+        <Sidebar openLogin={openLogin} visible={visible} toggleMenu={toggleMenu} setToggleMenu={() => setToggleMenu(false)} />
+        <SearchBar handleMenu={() => setToggleMenu(!toggleMenu)} toggleMenu={toggleMenu}/>
+        <div className={toggleMenu ? styles.background : undefined} onClick={() => setToggleMenu(false)}></div>
+        <main className={styles.main}>{children}</main>
       </AudioProvider>
     </div>
-  );
+ );
 }

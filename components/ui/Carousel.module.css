@@ -91,3 +91,22 @@
   font-size: 14px;
   opacity: 50%;
 }
+
+@media (max-width: 1024px) {
+  .button{
+    height: 420px;
+  }
+}
+
+@media (max-width: 600px) {
+  .button{
+    height: 440px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button{
+    height: 560px;
+    justify-content: center;
+  }
+}

@@ -16,7 +16,7 @@ function SettingsSection({ subtitle, content}) {
       <h2 className={styles.subtitle}>{subtitle}</h2>
       <div className={styles.content}>{content}</div>
       {
-        content === "Basic" && <Btn text="Upgrade to Premium" color="bg-[#2bd97c]!
+        content === "Standard (Free)" && <Btn text="Upgrade to Premium" color="bg-[#2bd97c]!
     text-[#032b41]!" wrapper="w-[180px] my-[20px]!" onClick={upgradePlan}/>
       }
     </div>

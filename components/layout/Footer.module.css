@@ -4,17 +4,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 324px;
+    height: fit-content;
     background-color: #f1f6f4;
     color: #032b41;
+    padding: 40px 0;
 }
 
 .footerLists{
-    margin: 16px 0 56px 0;
+    margin-bottom: 60px;
+    max-width: 1000px;
+    width: 100%;
+    padding: 0 40px;
     display: flex;
-    gap: 180px;
+    justify-content: space-between;
 }
 
 .copyright{
     font-weight: 500;
+}
+
+@media (max-width: 768px){
+    .footerLists{
+        flex-wrap: wrap;
+        gap: 40px 0;
+    }
 }

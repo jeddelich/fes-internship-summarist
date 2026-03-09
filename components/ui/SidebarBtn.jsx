@@ -9,11 +9,16 @@ function SidebarBtn({
   Icon,
   select,
   active,
+  setToggleMenu
 }) {
 
   const router = useRouter();
 
   function action(e) {
+    if (setToggleMenu) {
+      setToggleMenu()
+    }
+    
     if (LogInOrOut) {
       LogInOrOut(e);
     } else if (redirect) {

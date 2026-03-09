@@ -5,8 +5,8 @@
     left: 0;
     height: 80px;
     background-color: #032b41;
-    padding-left: 240px;
-    padding-right: 40px;
+    padding-left: 220px;
+    padding-right: 20px;
     display: flex;
     justify-content: space-between;
     transform: translateY(80px);
@@ -28,10 +28,11 @@
 
 .trackInfo{
     height: 80px;
-    width: 320px;
+    max-width: 320px;
     display: flex;
     align-items: center;
     gap: 16px;
+    padding-right: 20px;
 }
 
 .imgWrapper{
@@ -72,6 +73,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    padding-left: 20px ;
 }
 
 .audioBar{
@@ -108,4 +110,42 @@
 
 .time{
     color: white;
+}
+
+@media (max-width: 1024px) {
+    .audioPlayer{
+        flex-direction: column;
+        align-items: center;
+        height: 200px;
+        gap: 12px;
+        justify-content: center;
+    }
+    .trackInfo{
+        padding-right: 0;
+    }
+    .audioWrapper{
+        padding-left: 0;
+        height: fit-content;
+    }
+    .audioWrapper{
+        width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .audioPlayer{
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .audioWrapper{
+        width: 100%;
+    }
+    .imgWrapper{
+        display: none;
+    }
+    .text{
+        text-align: center;
+    }
 }

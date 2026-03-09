@@ -1,144 +1,191 @@
-.landing{
-    height: 99vh;
-    background-color: #032b41;
-    border-bottom-left-radius: 264px;
-    border-bottom-right-radius: 264px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.landing {
+  height: 99vh;
+  background-color: #032b41;
+  border-bottom-left-radius: 264px;
+  border-bottom-right-radius: 264px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .h1,
 .h4 {
-    color: #ffffff;    
+  color: #ffffff;
+  text-align: center;
 }
 
-.h1{
-    font-size: 48px;
-    width: 900px;
-    line-height: normal;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 32px;
+.h1 {
+  font-size: 48px;
+  max-width: 900px;
+  line-height: normal;
+  font-weight: bold;
+  margin: 40px 32px 32px 32px;
 }
 
-.h4{
-    font-weight: 400;
-    font-size: 20px;
+.h4 {
+  font-weight: 400;
+  font-size: 20px;
+  margin: 0 32px;
 }
 
-.imgWrapper{
-    height: 300px;
-    width: 340px;
-    background-color: #ffffff;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
+.imgWrapper {
+  height: 300px;
+  width: 340px;
+  background-color: #ffffff;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 
-.img{
-    height: 100%;
-    width: 80%;
-    margin-top: 32px;
+.img {
+  height: 100%;
+  width: 80%;
+  margin-top: 32px;
 }
 
 /* GET STARTED */
 
-.stickyTrack{
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
+.stickyTrack {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
-.getStarted{
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 40px;
+.getStarted {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 40px 0 40px;
+
 }
 
-.smallPrint{
-    text-align: center;
-    margin-top: 16px;
-    opacity: 50%;
-    font-size: 12px;
-    padding-bottom: 40px;
+.smallPrint {
+  text-align: center;
+  margin-top: 16px;
+  opacity: 50%;
+  font-size: 12px;
+  padding-bottom: 32px;
 }
 
 /* BENEFITS */
 
-.benefits{
-    margin: 64px 0 40px 0;
-    display: flex;
-    justify-content: center;
+.benefits {
+  margin: 64px 0 40px 0;
+  display: flex;
+  justify-content: center;
 }
 
-.benefitsList{
-    position: relative;
-    display: flex;
-    gap: 64px;
+.benefitsList {
+  position: relative;
+  display: flex;
+  gap: clamp(24px, 4vw, 56px)
 }
 
-.icon{
-    width: 100%;
-    height: 100%;
-    color: #032b41;
+.icon {
+  width: 100%;
+  height: 100%;
+  color: #032b41;
 }
 
 /* CHOOSE PLAN */
 
 .choosePlan {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 32px;
+  padding-bottom: 16px;
 }
 
 .h2 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 32px;
-    color: #032b41;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 32px;
+  color: #032b41;
 }
 
 /* SEPARATOR */
 
-.separator{
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    margin: 24px 0;
+.separator {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 24px 0;
 }
 
 .separatorLine,
-.separatorText{
-    color: gray;
+.separatorText {
+  color: gray;
 }
 
-.separatorLine{
-    width: 100px;
-    opacity: 50%;
+.separatorLine {
+  width: 100px;
+  opacity: 50%;
 }
 
-.separatorText{
-    font-size: 14px;
+.separatorText {
+  font-size: 14px;
 }
 
 /* FAQ */
 
-.FAQ{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 16px 0;
+.FAQ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0;
+  padding: 0 32px;
 }
 
-.questionList{
-    width: 920px;
+.questionList {
+  width: 920px;
+}
+
+@media (max-width: 768px) {
+  .h1 {
+    font-size: 25px;
+  }
+  .h4 {
+    font-size: 16px;
+  }
+  .landing {
+    height: 75vh;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .benefitsList{
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 672px) {
+  .landing {
+    height: 80vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .landing {
+    height: 85vh;
+  }
+    .h2{
+    font-size: 28px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 402px) {
+  .landing {
+    height: 90vh;
+  }
+  .imgWrapper {
+    height: 260px;
+    width: 300px;
+  }
 }
