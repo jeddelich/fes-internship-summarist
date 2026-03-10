@@ -15,6 +15,7 @@ import SignUpModal from "@/components/auth/SignUpModal";
 import ResetPasswordModal from "@/components/auth/ResetPasswordModal";
 import { getUserSubscription } from "@/services/firebaseFirestore";
 import BookDuration from "@/components/ui/BookDuration";
+import InsideBookImg from "@/components/ui/InsideBookImg"
 
 type Book = {
   id: string;
@@ -38,21 +39,22 @@ type Book = {
 export default function BookPage() {
   const { id } = useParams();
   const { user } = useAuth();
-  const router = useRouter()
+  const router = useRouter();
   const { openLogin, activeModal, closeModal, openSignUp, openResetPassword } =
     useAuthModal();
 
   const [book, setBook] = useState<Book | null>(null);
   const [bookmark, setBookmark] = useState<boolean>(false);
   const [subscription, setSubscription] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
   function handleButton(event: React.MouseEvent) {
     if (!user) {
-      openLogin(event)
+      openLogin(event);
     } else if (book?.subscriptionRequired === true && !subscription) {
-      router.push("/choose-plan")
+      router.push("/choose-plan");
     } else {
-      router.push(`/player/${book?.id}`)
+      router.push(`/player/${book?.id}`);
     }
   }
 
@@ -67,6 +69,7 @@ export default function BookPage() {
       }
     }
     fetchInfo();
+    setLoading(false);
   }, [id, user]);
 
   useEffect(() => {
@@ -97,87 +100,113 @@ export default function BookPage() {
           activeModal={activeModal}
         />
       )}
-      <div className={styles.row}>
-        <div className={styles.bookInfo}>
-          <h1 className={styles.title}>{book?.title}</h1>
-          <h3 className={styles.author}>{book?.author}</h3>
-          <h2 className={styles.subtitle}>{book?.subTitle}</h2>
-          <hr className={styles.separator} />
-          <div className={styles.featuredInfo}>
-            <div className={styles.featureWrapper}>
-              <figure className={styles.iconWrapper}>
-                <FaStar className={`${styles.icon} + " " + ${styles.gold}`} />
-              </figure>
-              <div
-                className={styles.featureText}
-              >{`${book?.averageRating} (${book?.totalRating} ratings)`}</div>
-            </div>
-            <div className={styles.featureWrapper}>
-              <figure className={styles.iconWrapper}>
-                <FaRegClock className={`${styles.icon} + " " + ${styles}`} />
-              </figure>
-              <div className={styles.featureText}><BookDuration audioUrl={book?.audioLink} /></div>
-            </div>
-            <div className={styles.featureWrapper}>
-              <figure className={styles.iconWrapper}>
-                <FaMicrophoneLines className={`${styles.icon} + " " + ${styles}`} />
-              </figure>
-              <div className={styles.featureText}>{book?.type}</div>
-            </div>
-            <div className={styles.featureWrapper}>
-              <figure className={styles.iconWrapper}>
-                <FaRegLightbulb
-                  className={`${styles.icon} + " " + ${styles.orange}`}
-                />
-              </figure>
-              <div
-                className={styles.featureText}
-              >{`${book?.keyIdeas} Key ideas`}</div>
+      {loading ? (
+        <div className={styles.row}>
+          <div className={`${styles.bookInfo} + ${styles.bookInfoSkeleton}`}>
+            <h1 className={styles.titleSkeleton}></h1>
+            <h3 className={styles.authorSkeleton}></h3>
+            <h2 className={styles.subtitleSkeleton}></h2>
+            <div className={styles.featuredInfoSkeleton}></div>
+            <div className={styles.buttonsSkeleton}></div>
+            <a className={styles.bookmarkSkeleton}></a>
+            <div className={`${styles.descriptionSkeleton} + ${styles.description}`}>
+              <div className={styles.headerSkeleton}></div>
+              <div className={styles.paraSkeleton}></div>
+              <div className={styles.paraSkeleton}></div>
             </div>
           </div>
-          <hr className={styles.separator} />
-          <div className={styles.buttons}>
-            <button className={styles.button} onClick={handleButton}>
-              <figure className={styles.buttonIconWrapper}>
-                <PiBookOpenTextLight className={styles.icon} />
-              </figure>
-              <div className={styles.buttonText}>Read</div>
-            </button>
-            <button className={styles.button} onClick={handleButton}>
-              <figure className={styles.buttonIconWrapper}>
-                <FaMicrophoneLines className={styles.icon} />
-              </figure>
-              <div className={styles.buttonText}>Listen</div>
-            </button>
-          </div>
-          <a className={styles.bookmark} onClick={() => setBookmark(!bookmark)}>
-            <figure className={styles.bookmarkIconWrapper}>
-              {!bookmark ? (
-                <MdOutlineBookmarkAdd className={styles.icon} />
-              ) : (
-                <MdOutlineBookmark className={styles.icon} />
-              )}
-            </figure>
-            <div className={styles.bookmarkText}>Add Title To My Library</div>
-          </a>
-          <div className={styles.description}>
-            <div className={styles.header}>What's it about?</div>
-            <div className={styles.tags}>
-              {book?.tags.map((tag, index) => (
-                <div className={styles.tag} key={index}>
-                  {tag}
-                </div>
-              ))}
-            </div>
-            <div className={styles.para}>{book?.bookDescription}</div>
-            <div className={styles.header}>About the author</div>
-            <div className={styles.para}>{book?.authorDescription}</div>
-          </div>
+          <figure className={styles.bookWrapper}>
+            <div className={styles.imgSkeleton}></div>
+          </figure>
         </div>
-        <figure className={styles.bookWrapper}>
-          <img className={styles.book} src={book?.imageLink} alt="" />
-        </figure>
-      </div>
+      ) : (
+        <div className={styles.row}>
+          <div className={styles.bookInfo}>
+            <h1 className={styles.title}>{book?.title}</h1>
+            <h3 className={styles.author}>{book?.author}</h3>
+            <h2 className={styles.subtitle}>{book?.subTitle}</h2>
+            <hr className={styles.separator} />
+            <div className={styles.featuredInfo}>
+              <div className={styles.featureWrapper}>
+                <figure className={styles.iconWrapper}>
+                  <FaStar className={`${styles.icon} + " " + ${styles.gold}`} />
+                </figure>
+                <div
+                  className={styles.featureText}
+                >{`${book?.averageRating} (${book?.totalRating} ratings)`}</div>
+              </div>
+              <div className={styles.featureWrapper}>
+                <figure className={styles.iconWrapper}>
+                  <FaRegClock className={`${styles.icon} + " " + ${styles}`} />
+                </figure>
+                <div className={styles.featureText}>
+                  <BookDuration audioUrl={book?.audioLink} />
+                </div>
+              </div>
+              <div className={styles.featureWrapper}>
+                <figure className={styles.iconWrapper}>
+                  <FaMicrophoneLines
+                    className={`${styles.icon} + " " + ${styles}`}
+                  />
+                </figure>
+                <div className={styles.featureText}>{book?.type}</div>
+              </div>
+              <div className={styles.featureWrapper}>
+                <figure className={styles.iconWrapper}>
+                  <FaRegLightbulb
+                    className={`${styles.icon} + " " + ${styles.orange}`}
+                  />
+                </figure>
+                <div
+                  className={styles.featureText}
+                >{`${book?.keyIdeas} Key ideas`}</div>
+              </div>
+            </div>
+            <hr className={styles.separator} />
+            <div className={styles.buttons}>
+              <button className={styles.button} onClick={handleButton}>
+                <figure className={styles.buttonIconWrapper}>
+                  <PiBookOpenTextLight className={styles.icon} />
+                </figure>
+                <div className={styles.buttonText}>Read</div>
+              </button>
+              <button className={styles.button} onClick={handleButton}>
+                <figure className={styles.buttonIconWrapper}>
+                  <FaMicrophoneLines className={styles.icon} />
+                </figure>
+                <div className={styles.buttonText}>Listen</div>
+              </button>
+            </div>
+            <a
+              className={styles.bookmark}
+              onClick={() => setBookmark(!bookmark)}
+            >
+              <figure className={styles.bookmarkIconWrapper}>
+                {!bookmark ? (
+                  <MdOutlineBookmarkAdd className={styles.icon} />
+                ) : (
+                  <MdOutlineBookmark className={styles.icon} />
+                )}
+              </figure>
+              <div className={styles.bookmarkText}>Add Title To My Library</div>
+            </a>
+            <div className={styles.description}>
+              <div className={styles.header}>What's it about?</div>
+              <div className={styles.tags}>
+                {book?.tags.map((tag, index) => (
+                  <div className={styles.tag} key={index}>
+                    {tag}
+                  </div>
+                ))}
+              </div>
+              <div className={styles.para}>{book?.bookDescription}</div>
+              <div className={styles.header}>About the author</div>
+              <div className={styles.para}>{book?.authorDescription}</div>
+            </div>
+          </div>
+          <InsideBookImg src={book?.imageLink} />
+        </div>
+      )}
     </div>
   );
 }

@@ -22,16 +22,6 @@
   gap: 12px;
 }
 
-.bookWrapper{
-  width: 300px;
-  margin-left: 20px;
-}
-
-.book{
-  width: 100%;
-  height: auto;
-}
-
 .row{
     display: flex;
     width: 100%;
@@ -186,6 +176,79 @@
   margin-bottom: 20px;
 }
 
+.bookWrapper{
+  width: 300px;
+  margin-left: 20px;
+}
+
+.book{
+  width: 100%;
+  height: auto;
+}   
+
+/* SKELETONS */
+
+.titleSkeleton,
+.authorSkeleton,
+.subtitleSkeleton,
+.featuredInfoSkeleton,
+.imgSkeleton,
+.paraSkeleton,
+.headerSkeleton,
+.buttonsSkeleton,
+.bookmarkSkeleton{
+  background-color: lightgray;
+  border-radius: 2px;
+}
+
+.titleSkeleton{
+  margin-top: 24px;
+  height: 48px;
+  width: 375px;
+}
+
+.authorSkeleton{
+  height: 24px;
+  width: 275px;
+}
+
+.subtitleSkeleton{
+  height: 32px;
+  width: 325px;
+}
+
+.featuredInfoSkeleton{
+  margin-top: 24px;
+  height: 64px;
+  width: 250px;
+}
+
+.buttonsSkeleton{
+  margin-top: 24px;
+  height: 48px;
+  width: 300px;
+}
+
+.bookmarkSkeleton{
+  height: 24px;
+  width: 275px;
+}
+
+.headerSkeleton{
+  height: 64px;
+  width: 200px;
+}
+
+.paraSkeleton{
+  height: 150px;
+  max-width: 600px;
+}
+
+.imgSkeleton{
+  margin-top: 24px;
+  height: 300px;
+}
+
 @media (max-width: 964px) {
   .row{
     flex-direction: column-reverse;
@@ -195,6 +258,10 @@
   .bookInfo{
     width: 100%;
   }
+  .bookWrapper{
+    padding: 0 20px;
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -203,10 +270,6 @@
   }
   .title{
     font-size: 24px;
-  }
-  .bookWrapper{
-    padding: 0 20px;
-    margin-left: 0;
   }
   .featuredInfo{
     width: 100%;
@@ -232,5 +295,36 @@
   }
   .bookPage{
     margin-bottom: 20px;
+  }
+  .bookInfoSkeleton{
+    align-items: center;
+  }
+  .descriptionSkeleton{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .paraSkeleton{
+    max-width: 100%;
+  }
+  .headerSkeleton{
+    margin: 0 auto;
+  }
+  .titleSkeleton{
+    width: 275px;
+  }
+  .authorSkeleton{
+    width: 200px;
+  }
+  .subtitleSkeleton{
+    width: 250px;
+  }
+  .buttonsSkeleton{
+    width: 275px;
+  }
+  .bookmarkSkeleton{
+    width: 250px;
   }
 }
