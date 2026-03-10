@@ -31,6 +31,9 @@ function page() {
     try {
       setLoading(true);
       await startCheckout(planSelect);
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000)
     } catch (err) {
       console.error(err);
       alert("Checkout failed");
