@@ -45,9 +45,9 @@ export default function AppLayout({ children }: { children: ReactNode }) {
       <AudioProvider>
         <AudioManager />
         <Sidebar openLogin={openLogin} toggleMenu={toggleMenu} setToggleMenu={() => setToggleMenu(false)} />
-        <main className={styles.main}>{children}</main>
         <SearchBar handleMenu={() => setToggleMenu(!toggleMenu)} toggleMenu={toggleMenu}/>
         <div className={toggleMenu ? styles.background : undefined} onClick={() => setToggleMenu(false)}></div>
+        <main className={styles.main}>{children}</main>
       </AudioProvider>
     </div>
  );

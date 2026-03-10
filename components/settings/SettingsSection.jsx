@@ -19,7 +19,7 @@ function SettingsSection({ subtitle, content}) {
       <div className={styles.content}>{content}</div>
       {
         content === "Standard (Free)" && <Btn text="Upgrade to Premium" color="bg-[#2bd97c]!
-    text-[#032b41]!" wrapper="w-[180px] my-[20px]!" onClick={upgradePlan} style={{zIndex: 0}}/>
+    text-[#032b41]!" wrapper="w-[180px] my-[20px]!" onClick={upgradePlan} style={{zIndex: -1}}/>
       }
     </div>
   );
