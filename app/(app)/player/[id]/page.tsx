@@ -41,7 +41,6 @@ export default function PlayerPage() {
     async function fetchInfo() {
       const fetchedBook = await getBookById(id);
       setBook(fetchedBook);
-      console.log(fetchedBook);
     }
     fetchInfo();
     setLoading(false);

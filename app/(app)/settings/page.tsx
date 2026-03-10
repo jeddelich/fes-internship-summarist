@@ -41,7 +41,6 @@ function Settings() {
       }
 
       fetchUserData();
-      console.log(auth.currentUser);
     }
   }, [user?.uid]);
 

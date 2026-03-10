@@ -72,10 +72,6 @@ export default function BookPage() {
     setLoading(false);
   }, [id, user]);
 
-  useEffect(() => {
-    console.log(book);
-  }, [book]);
-
   return (
     <div className={styles.bookPage}>
       {activeModal === "login" && (

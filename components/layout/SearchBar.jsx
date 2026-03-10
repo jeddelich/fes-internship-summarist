@@ -32,7 +32,6 @@ function SearchBar({ handleMenu, toggleMenu }) {
           setSearchResults([]);
         } else {
           setSearchResults(result);
-          console.log(result);
         }
       }, 500);
     }
