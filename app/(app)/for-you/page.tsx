@@ -86,7 +86,7 @@ export default function dashboard() {
         <h4 className={styles.sectionSubtitle}>We think you'll like these</h4>
         {recommendedBooks && (
           <div style={{ margin: "20px 0" }}>
-            <Carousel Books={recommendedBooks} subscription={subscription} />
+            <Carousel Books={recommendedBooks} subscription={subscription} forYouLoading={forYouLoading} />
           </div>
         )}
       </section>
@@ -96,7 +96,7 @@ export default function dashboard() {
         <h4 className={styles.sectionSubtitle}>Browse those books</h4>
         {suggestedBooks && (
           <div style={{ margin: "16px 0" }}>
-            <Carousel Books={suggestedBooks} subscription={subscription}/>
+            <Carousel Books={suggestedBooks} subscription={subscription} forYouLoading={forYouLoading}/>
           </div>
         )}
       </section>

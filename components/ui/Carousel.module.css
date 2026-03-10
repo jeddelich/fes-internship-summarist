@@ -92,6 +92,54 @@
   opacity: 50%;
 }
 
+/* SKELETONS */
+
+.imgSkeleton,
+.titleSkeleton,
+.authorSkeleton,
+.subTitleSkeleton,
+.bottomInfoSkeleton{
+  background-color: lightgray;
+}
+
+.titleSkeleton,
+.authorSkeleton,
+.subTitleSkeleton,
+.bottomInfoSkeleton{
+  border-radius: 4px;
+}
+
+.imgSkeleton{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+}
+
+.titleSkeleton{
+  width: 80%;
+  height: 30px;
+}
+
+.authorSkeleton{
+  width: 65%;
+  height: 20px;
+}
+
+.subTitleSkeleton{
+  width: 80%;
+  height: 60px;
+}
+
+.bottomInfoSkeleton{
+    width: 65%;
+    height: 20px;
+}
+
+.buttonSkeleton{
+  cursor: default;
+  width: 100%;
+}
+
 @media (max-width: 1024px) {
   .button{
     height: 420px;
