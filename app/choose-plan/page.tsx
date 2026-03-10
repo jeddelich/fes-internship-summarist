@@ -10,7 +10,8 @@ import { useState } from "react";
 import Plan from "@/components/ui/Plan";
 import Benefit from "@/components/ui/Benefit";
 import QuestionSection from "@/components/ui/QuestionSection";
-import { startCheckout } from "@/lib/startCheckout"; 
+import { startCheckout } from "@/lib/startCheckout";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const STRIPE_PRICES = {
   price_1T5hV8FfrSO4dTKFreZeB4wN: "price_premium_monthly",
@@ -22,17 +23,20 @@ function page() {
   const MONTHLY_PRICE = "price_1T5hV8FfrSO4dTKFreZeB4wN";
   const [questionOpen, setQuestionOpen] = useState<number | null>(1);
   const [planSelect, setPlanSelect] = useState<string>(YEARLY_PRICE);
+  const [loading, setLoading] = useState(false);
 
   const handleSubscribe = async (planSelect: string) => {
     console.log("PLAN SELECTED:", planSelect);
 
     try {
-    await startCheckout(planSelect);
-  } catch (err) {
-    console.error(err);
-    alert("Checkout failed");
-  }
-};
+      setLoading(true);
+      await startCheckout(planSelect);
+    } catch (err) {
+      console.error(err);
+      alert("Checkout failed");
+      setLoading(false);
+    }
+  };
 
   function toggleQuestion(index: number) {
     setQuestionOpen(questionOpen === index ? null : index);
@@ -111,9 +115,15 @@ function page() {
         <div className={styles.getStarted}>
           <Btn
             text={
-              planSelect === YEARLY_PRICE
-                ? "Start your free 7-day trial"
-                : "Start your first month"
+              loading ? (
+                <figure className={styles.loading}>
+                  <AiOutlineLoading3Quarters className={styles.loadingIcon} />
+                </figure>
+              ) : planSelect === YEARLY_PRICE ? (
+                "Start your free 7-day trial"
+              ) : (
+                "Start your first month"
+              )
             }
             color="bg-[#2bd97c]! text-[#032b41]! active:bg-[#20ba68]! hover:scale-102"
             style={{ width: "280px" }}
