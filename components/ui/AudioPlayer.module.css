@@ -11,7 +11,7 @@
     justify-content: space-between;
     transform: translateY(80px);
     opacity: 0;
-    animation: slideUp 1s 2s ease forwards;
+    animation: slideUp 1s 1000ms ease forwards;
 }
 
 @keyframes slideUp {
