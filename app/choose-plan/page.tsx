@@ -24,7 +24,9 @@ function page() {
   const [planSelect, setPlanSelect] = useState<string>(YEARLY_PRICE);
 
   const handleSubscribe = async (planSelect: string) => {
-  try {
+    console.log("PLAN SELECTED:", planSelect);
+
+    try {
     await startCheckout(planSelect);
   } catch (err) {
     console.error(err);
