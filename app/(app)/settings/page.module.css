@@ -69,3 +69,25 @@
     margin-bottom: 24px;
     text-align: center;
 }
+
+/* LOADING SKELETON */
+
+.settingsSkeleton{
+    display: flex;
+    flex-direction: column;
+}
+
+.settingSkeleton{
+    margin-top: 20px;
+    width: 100px;
+    height: 24px;
+    background-color: lightgray;
+    margin-bottom: 12px;
+}
+
+.contentSkeleton{
+    width: 160px;
+    height: 24px;
+    background-color: lightgray;
+    margin-bottom: 40px;
+}

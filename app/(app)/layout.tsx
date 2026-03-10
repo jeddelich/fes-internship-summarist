@@ -16,12 +16,7 @@ import styles from "./layout.module.css"
 export default function AppLayout({ children }: { children: ReactNode }) {
   const { activeModal, closeModal, openSignUp, openLogin, openResetPassword } =
     useAuthModal();
-  const [visible, setVisible] = useState(false)
   const [toggleMenu, setToggleMenu] = useState(false)
-
-  useEffect(() => {
-    setVisible(true)
-  }, [])
 
   return (
     <div className="flex min-h-screen">
@@ -49,7 +44,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
       )}
       <AudioProvider>
         <AudioManager />
-        <Sidebar openLogin={openLogin} visible={visible} toggleMenu={toggleMenu} setToggleMenu={() => setToggleMenu(false)} />
+        <Sidebar openLogin={openLogin} toggleMenu={toggleMenu} setToggleMenu={() => setToggleMenu(false)} />
         <SearchBar handleMenu={() => setToggleMenu(!toggleMenu)} toggleMenu={toggleMenu}/>
         <div className={toggleMenu ? styles.background : undefined} onClick={() => setToggleMenu(false)}></div>
         <main className={styles.main}>{children}</main>

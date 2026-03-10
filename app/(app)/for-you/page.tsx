@@ -1,6 +1,6 @@
 "use client";
 import { useAuth } from "@/context/AuthContext";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import getSelectedBook from "@/api/selected-book";
 import getRecommendedBooks from "@/api/recommended-books";
 import getSuggestedBooks from "@/api/suggested-books";
@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useAudio } from "@/context/AudioContext";
 import { formatTime } from "@/utils/formatTime";
 import BookDuration from "@/components/ui/BookDuration";
+import BookImg from "@/components/ui/BookImg"
 
 type Book = {
   id: string;
@@ -33,35 +34,39 @@ type Book = {
 };
 
 export default function dashboard() {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
   const { duration } = useAudio()
   const [subscription, setSubscription] = useState<any>(null);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [recommendedBooks, setRecommendedBooks] = useState<Book[] | null>(null);
   const [suggestedBooks, setSuggestedBooks] = useState<Book[] | null>(null);
+  const [forYouLoading, setForYouLoading] = useState<Boolean>(true)
 
   useEffect(() => {
+    setForYouLoading(true)
     async function fetchBooks() {
       const sub = await getUserSubscription(user?.uid);
       setSubscription(sub);
       setSelectedBook(await getSelectedBook());
       setRecommendedBooks(await getRecommendedBooks());
       setSuggestedBooks(await getSuggestedBooks());
+      setForYouLoading(false)
     }
     fetchBooks();
   }, [user, setSuggestedBooks]);
-
-  if (loading) return <div>Loading...</div>;
 
   return (
     <div className={styles.forYou}>
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Selected Just For You</h2>
+        {
+          forYouLoading ? <div className={styles.selectedBookSkeleton}></div> : 
         <Link href={`/book/${selectedBook?.id}`} className={styles.selectedBox}>
           <div className={styles.subTitle}>{selectedBook?.subTitle}</div>
-          <div className={styles.bookWrapper}>
-            <img src={selectedBook?.imageLink} className={styles.book} alt="" />
-          </div>
+          {
+            forYouLoading ? <div className={styles.bookWrapperSkeleton}></div> :
+            < BookImg src={selectedBook?.imageLink} />
+          }
           <div className={styles.bookMetadata}>
             <div className={styles.title}>{selectedBook?.title}</div>
             <div className={styles.author}>{selectedBook?.author}</div>
@@ -73,6 +78,7 @@ export default function dashboard() {
             </div>
           </div>
         </Link>
+        }
       </section>
 
       <section className={styles.section}>
@@ -80,7 +86,7 @@ export default function dashboard() {
         <h4 className={styles.sectionSubtitle}>We think you'll like these</h4>
         {recommendedBooks && (
           <div style={{ margin: "20px 0" }}>
-            <Carousel Books={recommendedBooks} subscription={subscription} />
+            <Carousel Books={recommendedBooks} subscription={subscription} forYouLoading={forYouLoading} />
           </div>
         )}
       </section>
@@ -90,7 +96,7 @@ export default function dashboard() {
         <h4 className={styles.sectionSubtitle}>Browse those books</h4>
         {suggestedBooks && (
           <div style={{ margin: "16px 0" }}>
-            <Carousel Books={suggestedBooks} subscription={subscription}/>
+            <Carousel Books={suggestedBooks} subscription={subscription} forYouLoading={forYouLoading}/>
           </div>
         )}
       </section>

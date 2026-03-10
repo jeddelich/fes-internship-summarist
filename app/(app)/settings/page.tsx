@@ -24,7 +24,7 @@ const PLAN_NAMES: Record<string, string> = {
 };
 
 function Settings() {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const [userData, setUserData] = useState<FirestoreUser | null>(null);
   const [subscription, setSubscription] = useState<any>(null);
   const { openLogin, activeModal, closeModal, openSignUp, openResetPassword } =
@@ -45,9 +45,8 @@ function Settings() {
     }
   }, [user?.uid]);
 
-const planName =
-  subscription?.price?.id
-    ? PLAN_NAMES[subscription.price.id] ?? "Standard (Free)"
+  const planName = subscription?.price?.id
+    ? (PLAN_NAMES[subscription.price.id] ?? "Standard (Free)")
     : "Standard (Free)";
 
   return (
@@ -78,12 +77,19 @@ const planName =
         <div className={styles.container}>
           <div className={styles.row}>
             <h1 className={styles.title}>Settings</h1>
-            {user ? (
+            {loading ? (
               <>
-                <SettingsSection
-                  subtitle="Membership:"
-                  content={planName}
-                />
+                <hr className={styles.separator} />
+                <div className={styles.loggedInSkeleton}>
+                  <div className={styles.settingSkeleton}></div>
+                  <div className={styles.contentSkeleton}></div>
+                  <div className={styles.settingSkeleton}></div>
+                  <div className={styles.contentSkeleton}></div>
+                </div>
+              </>
+            ) : user ? (
+              <>
+                <SettingsSection subtitle="Membership:" content={planName} />
                 <SettingsSection
                   subtitle="Email Account:"
                   content={

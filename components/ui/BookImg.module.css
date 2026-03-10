@@ -1,0 +1,23 @@
+.bookWrapper {
+  width: 25%;
+}
+
+.book {
+  width: 100%;
+}
+
+.bookSkeleton {
+  width: 100%;
+  height: 148px;
+  background-color: lightgray;
+  border-radius: 4px;
+}
+
+@media (max-width: 522px) {
+  .bookSkeleton {
+    height: 100px;
+  }
+  .bookWrapper {
+    width: 120px;
+  }
+}
