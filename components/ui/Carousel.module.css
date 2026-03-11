@@ -3,9 +3,14 @@
 }
 
 .viewport {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
 }
 
+.viewport::-webkit-scrollbar {
+  display: none;
+}
 .container {
   display: flex;
 }
@@ -79,25 +84,6 @@
 .icon{
   height: 100%;
   width: 100%;
-}
-
-.prev,
-.next {
-  position: absolute;
-  top: 40%;
-  z-index: 2;
-  background: white;
-  border: none;
-  font-size: 32px;
-  cursor: pointer;
-}
-
-.prev {
-  left: -10px;
-}
-
-.next {
-  right: -10px;
 }
 
 @media (max-width: 1024px) {

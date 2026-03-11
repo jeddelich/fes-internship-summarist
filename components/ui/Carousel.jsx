@@ -1,32 +1,22 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import styles from "./Carousel.module.css";
 import { FaStar } from "react-icons/fa";
 import { CiClock2 } from "react-icons/ci";
 import Link from "next/link";
 import BookDuration from "./BookDuration";
-import { formatTime } from "@/utils/formatTime";
 
 function Carousel({ Books, subscription, forYouLoading }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    dragFree: true
+    dragFree: true,
+    watchDrag: true
   });
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
+  
   return (
     <div className={styles.embla}>
-      <button className={styles.prev} onClick={scrollPrev}>‹</button>
-
       <div className={styles.viewport} ref={emblaRef}>
         <div className={styles.container}>
           {forYouLoading
@@ -76,8 +66,6 @@ function Carousel({ Books, subscription, forYouLoading }) {
               ))}
         </div>
       </div>
-
-      <button className={styles.next} onClick={scrollNext}>›</button>
     </div>
   );
 }
