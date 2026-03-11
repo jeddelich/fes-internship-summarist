@@ -84,21 +84,17 @@ export default function dashboard() {
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Recommended For You</h2>
         <h4 className={styles.sectionSubtitle}>We think you'll like these</h4>
-        {recommendedBooks && (
           <div style={{ margin: "20px 0" }}>
             <Carousel Books={recommendedBooks} subscription={subscription} forYouLoading={forYouLoading} />
           </div>
-        )}
       </section>
 
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Suggested Books</h2>
         <h4 className={styles.sectionSubtitle}>Browse those books</h4>
-        {suggestedBooks && (
           <div style={{ margin: "16px 0" }}>
             <Carousel Books={suggestedBooks} subscription={subscription} forYouLoading={forYouLoading}/>
           </div>
-        )}
       </section>
     </div>
   );

@@ -6,6 +6,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
+  min-height: 400px;
 }
 
 .viewport::-webkit-scrollbar {
@@ -21,10 +22,10 @@
   padding: 32px 12px 0 12px;
 }
 
-.pill{
+.pill {
   position: absolute;
-  top:0;
-  right:0;
+  top: 0;
+  right: 0;
   color: white;
   font-weight: 500;
   width: fit-content;
@@ -34,42 +35,42 @@
   background-color: #032b41;
 }
 
-.title{
-    color: #032b41;
-    font-weight: bold;
-    line-height: normal;
-    margin-top: 8px;
+.title {
+  color: #032b41;
+  font-weight: bold;
+  line-height: normal;
+  margin-top: 8px;
 }
 
-.author{
+.author {
   font-size: 14px;
   font-weight: 300;
   opacity: 50%;
   margin-top: 6px;
 }
 
-.subTitle{
+.subTitle {
   font-size: 14px;
   line-height: normal;
   opacity: 75%;
   margin-top: 6px;
 }
 
-.bottomInfo{
+.bottomInfo {
   display: flex;
   align-items: center;
   margin-top: 6px;
   gap: 4px;
 }
 
-.bottomText{
+.bottomText {
   font-weight: 300;
   opacity: 50%;
   font-size: 14px;
   margin-right: 4px;
 }
 
-.iconWrapper{
+.iconWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,13 +78,76 @@
   width: 14px;
 }
 
-.star{
+.star {
   color: gold;
 }
 
-.icon{
+.icon {
   height: 100%;
   width: 100%;
+}
+
+/* SKELETONS */
+
+.buttonSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imgSkeleton,
+.titleSkeleton,
+.authorSkeleton,
+.subTitleSkeleton,
+.bottomInfoSkeleton {
+  background-color: lightgray;
+  border-radius: 4px;
+}
+
+.imgSkeleton {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+}
+
+.titleSkeleton {
+  height: 18px;
+  width: 85%;
+}
+
+.authorSkeleton {
+  margin-top: 6px;
+  height: 14px;
+  width: 60%;
+}
+
+.subTitleSkeleton {
+  margin-top: 6px;
+  height: 40px;
+  width: 90%;
+}
+
+.bottomInfoSkeleton {
+  margin-top: 6px;
+  height: 14px;
+  width: 50%;
+}
+
+.imgWrapper {
+  width: 100%;
+}
+
+.bookImg {
+  width: 100%;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  transition: opacity 0.25s ease;
 }
 
 @media (max-width: 1024px) {
