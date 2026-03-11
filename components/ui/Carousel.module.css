@@ -50,6 +50,37 @@
   margin-top: 6px;
 }
 
+.bottomInfo{
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  gap: 4px;
+}
+
+.bottomText{
+  font-weight: 300;
+  opacity: 50%;
+  font-size: 14px;
+  margin-right: 4px;
+}
+
+.iconWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 14px;
+  width: 14px;
+}
+
+.star{
+  color: gold;
+}
+
+.icon{
+  height: 100%;
+  width: 100%;
+}
+
 .prev,
 .next {
   position: absolute;

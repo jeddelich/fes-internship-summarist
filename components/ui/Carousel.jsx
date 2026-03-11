@@ -7,6 +7,7 @@ import { FaStar } from "react-icons/fa";
 import { CiClock2 } from "react-icons/ci";
 import Link from "next/link";
 import BookDuration from "./BookDuration";
+import { formatTime } from "@/utils/formatTime";
 
 function Carousel({ Books, subscription, forYouLoading }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
