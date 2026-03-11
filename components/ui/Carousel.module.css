@@ -29,6 +29,27 @@
   background-color: #032b41;
 }
 
+.title{
+    color: #032b41;
+    font-weight: bold;
+    line-height: normal;
+    margin-top: 8px;
+}
+
+.author{
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 50%;
+  margin-top: 6px;
+}
+
+.subTitle{
+  font-size: 14px;
+  line-height: normal;
+  opacity: 75%;
+  margin-top: 6px;
+}
+
 .prev,
 .next {
   position: absolute;
