@@ -6,8 +6,6 @@ import LoginModal from "@/components/auth/LoginModal";
 import SignUpModal from "@/components/auth/SignUpModal";
 import ResetPasswordModal from "@/components/auth/ResetPasswordModal";
 import useAuthModal from "@/components/hooks/useAuthModal";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import SearchBar from "@/components/layout/SearchBar";
 import { AudioProvider } from "@/context/AudioContext";
 import AudioManager from "@/components/ui/AudioManager";
